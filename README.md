@@ -17,7 +17,7 @@
 <p>On his official page you can find discount coupons for his courses: <a href="https://fernando-herrera.com/#/home" target="_blank">Fernando Herrera - Web Page</a></p>
 
 <h2>3. Facilities required or recommended</h2>
-<p>Some of the recommended facilities for this course are the following: <a href="https://gist.github.com/Klerith/607dd6bb60b5a70bc5e4d9c81ef6501e" target"_blank">(Document with links)</a></p>
+<p>Some of the recommended facilities for this course are the following: <a href="https://gist.github.com/Klerith/607dd6bb60b5a70bc5e4d9c81ef6501e" target="_blank">(Document with links)</a></p>
 <ul>
 <li>Google Chrome</li>
 <li>Visual Studio Code</li>
