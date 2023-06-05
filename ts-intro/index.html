@@ -8,6 +8,18 @@
 </head>
 <body>
     <h1>Práctica con Typescript</h1>
+    <p>Para iniciar proyecto con TS se usa en consola CMD el comando: <br>
+        <code> tsc -init</code> que creará el archivo tsconfig.json
+    </p>
+    <p>Para transpilar a javascript archivos ts se usa en consola CMD el comando tsc seguido del nombre del archivo y con -w  de watch revisar /observar los cambios:<br>
+        <code>tsc index.ts -w</code>
+    </p>
+    <p>Este comando anterior creará un archivo .js y con esto haremos que se transpile siempre que hagamos un cambio en el código del archivo ts.</p>
+    <p>No olvidemos indicar en head o body del archivo html la ruta a este archivo js creado automáticamente para ver en la consola del navegador los cambios de forma simultánea</p>
+    <p>Usaremos Google Chrome y sus herramientas de desarrollo</p>
+    <p>El comando 
+        <code>npm install</code> instalará los node modules que tendremos que ignorar con el archivo .gitignore
+    </p>
     <script src="../index.js"></script>
 </body>
 </html>

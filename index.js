@@ -1,8 +1,19 @@
-//para iniciar proyecto con TS se usa en consola el comando tsc -init
-//para transpilar a javascript archivos ts se usa en consola el comando tsc seguido del nombre del archivo y con -w  de watch revisar /observar los cambios:
-//tsc index.ts -w
-//Nos creará un archivo .js y con esto haremos que se transpile siempre que hagamos un cambio en el ts.
-// No olivdemos indicar en el archivo html la ruta a este js creado automáticamente para ver en el navegador los cambios
-/*
-    ===== Código de TypeScript =====
-*/ 
+var reproductor = {
+    volumen: 90,
+    segundo: 36,
+    cancion: 'Mess',
+    detalles: {
+        autor: 'Ed Sheeran',
+        anio: 2015
+    }
+};
+//const autor = "Fulano"; //qué pasaría entonces si tuvieramos variable autor ya usada? que tendríamos dudas en cuanto a que valor sale por pantalla
+//así que dentro de detalles a autor le ponemos la variable que luego llamaremos en console.log
+var volumen = reproductor.volumen, segundo = reproductor.segundo, cancion = reproductor.cancion, detalles = reproductor.detalles; //creamos un grupo de constantes que tienen en común el objeto reproductor. Así dentro de console log quitaremos la palabra reproductor y dejaremos el valor
+//para desestructurar al autor que está dentro de un objeto: incluyo detalles en las llaves de reproductor así que quito reproductor de console
+var autor = detalles.autor; //desestructuramos detalles dentro cogiendo solo el que nos interesa que es autor y es la forma más clara 
+console.log('El volumen actual es de: ', volumen);
+console.log('El segundo actual es de: ', segundo);
+console.log('La canción actual es: ', cancion);
+console.log('El autor es de: ', autor); //autor dentro de detalles desestructurado
+//Para no repetir tanto podemos usar desestructuración que haremos antes de estos console.log dentro de la const {} = reproductor
