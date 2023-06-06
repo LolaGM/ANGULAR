@@ -1,6 +1,7 @@
 <h1>TYPESCRIPT fundamentals for ANGULAR framework</h1>
 <div style="display:flex; flex-wrap:wrap; justify-content:center; margin:auto">
-   <img style="width:1000px; height:250px; margin:12px" src="https://github.com/LolaGM/ANGULAR/assets/116545851/86c46a1d-1e6e-4bdc-a072-c410e1ccc578">
+   <img style="width:1000px; height:250px; margin:12px" src="https://github.com/LolaGM/TS-fundamentals/assets/116545851/2c8cee51-d3c0-453a-98a8-ffe841ea270a">
+
 </div>
 
 <h2>1. Description</h2>
