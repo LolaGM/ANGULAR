@@ -22,13 +22,13 @@
         <code>npm install</code> instalará los node modules que tendremos que ignorar con el archivo .gitignore
     </p>
     <h2>Fundamentos</h2>
-    <h4>INTERFACE</h4>
+    <h3>INTERFACE</h3>
     <p>Creamos ahora las interfaces con mayusc y recordemos que en JS no aparecen en el código</p>
-    <h4>DESESTRUCTURACIÓN</h4>
+    <h3>DESESTRUCTURACIÓN</h3>
     <p>Es más fácil hacer la desestructuración de arreglos que de objetos.
     Es decir,se usan más con objetos que con arreglos</p>
     <p>Podemos desestructurar arrays, objetos y funciones</p>
-    <h4>IMPORTACIONES Y EXPORTACIONES</h4>
+    <h3>IMPORTACIONES Y EXPORTACIONES</h3>
     <p>Creamos un arreglo y le decimos como siempre el tipo de dato. SI necesitamos importar la interface que usa carritoCompras no hace falta copiarla justo arriba de la constante porque podría cambiar de valores en un futuro y no serviría aquí.
         Para esto existen las importaciones: reutilizar código ya creado.
         <ul>
@@ -38,7 +38,7 @@
             <li>Aparecerá la importación arriba del código.</li>
         </ul>
     Una vez que ya tenemos la importación, dentro del array ya puedo definir las propiedades y sus valores para esta ocasión.Vamos a hacer varios objetos.</p>
-    <h4>CLASES en Typescript</h4>
+    <h3>CLASES en Typescript</h3>
     <p>Recordemos que tienen la ventaja de que en las clases podemos definir las propiedades de tipo:</p>
     <ul>
         <li>privadas PRIVATE = sólo es visible dentro de la clase en la que está. Necesitaremos constructor</li>
@@ -64,7 +64,26 @@
     <p>
         Veamos ahora la extensión de propiedades de una clase:
     </p>
-    <h4>EXTENSION de propiedades de una clase</h4>
+    <h3>EXTENSION de propiedades de una clase</h3>
+    <p>Expandimos la clase <code>Heroe</code> para que usemos las propiedades de <code>PersonalNormal</code> y recordemos usar el super que lo llamaremos entre las llaves</p>
+    <h3>GENÉRICOS</h3>
+    <p>Son una utilidad de TypeScript muy relacionada con su sistema de tipado.</p>
+    <p>Los genéricos se indican entre "menores y mayores que", como si fueran etiquetas HTML, asignando un alias al tipo variable que se esté usando</p>
+    <p>En vez de usar <code>any</code>especificamos que podría ser cualquier tipo de dato usando esas " menor / mayor que" </p>
+    <p>El estándar es usar la letra <code><T></code> dentro del nombre de la función pero se podría usar cualquier letra
+    <br>También para indicarle al argumento de la función esa misma letra <code>T</code></p>
+    <p>Podría especificarse otra letra o directamente indicar el tipo de dato entre <code>menor o mayor que</code></p>
+    <p>Si pasamos el ratón por encima de la variable nos dirá lo que es en cada momento según el valor pasado al parámetro: string, number, arreglo, etc.</p>
+    <h3>DECORADORES</h3>
+    <p><a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_blank">https://www.typescriptlang.org/docs/handbook/decorators.html</a></p>
+    <p>Son funciones. <br>
+        Sirven para añadir o expandir funcionalidades <br>
+        Se usa la arroba y detrás un nombre descriptivo: <br>
+        ANGULAR los usa para diferenciar si es la clase es un componente,un pipe,una directiva, un servicio...<br>
+        <code>@miDecorador</code></p>
+    <p>Pueden llevar argumentos dentro o no</p>
+    <p>En el archivo ts.config debemos especificar los decorators en true en la sección "experimentalDecorators" quitando los slash</p>
+    <h3>ENCADENAMIENTO OPCIONAL</h3>
     <script src="../index.js"></script>
 </body>
 </html>
