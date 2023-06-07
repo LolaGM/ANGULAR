@@ -1,0 +1,21 @@
+<h1>Listado de Héroes de MARVEL</h1>
+
+<!-- Directiva ngIf para mostrar algo si se cumple la condición de que heroe haya sido borrado:
+Si heroeBorrado es distinto de un string vacío esuna opción pero tambien podríamos haber puesto sólo heroeBorrado sin símbolos-->
+<div *ngIf=" heroeBorrado !=='' ">
+    <h3>Héroe borrado: <small>{{ heroeBorrado }}</small></h3>
+</div>
+
+<button (click)="borrarHeroe()">
+    Borrar Héroe de MARVEL
+</button>
+
+<!-- Directiva ngFor para recorrer arrays-->
+<ul>
+    <li *ngFor="let heroe of heroes; let i = index">
+        Superhéroe  {{ i + 1 }} {{ heroe }}
+    </li>
+</ul>
+
+
+
