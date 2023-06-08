@@ -1,13 +1,20 @@
 <h1>Listado de Héroes de MARVEL</h1>
 
-<!-- Directiva ngIf para mostrar algo si se cumple la condición de que heroe haya sido borrado:
-Si heroeBorrado es distinto de un string vacío esuna opción pero tambien podríamos haber puesto sólo heroeBorrado sin símbolos-->
-<div *ngIf=" heroeBorrado !=='' ">
+<!-- Directiva ngIf para mostrar algo si se cumple la condición de que heroe haya sido borrado: tenemos varias opciones:
+Si heroeBorrado es distinto de un string vacío
+heroeBorrado sin símbolos o !heroeBorrado con la negación de la condición-->
+
+<div *ngIf="heroeBorrado; else noBorrado">
     <h3>Héroe borrado: <small>{{ heroeBorrado }}</small></h3>
 </div>
 
+<!-- Referencia local con el ng-template que se ejecuta si llega la condición al else indicado en el *ngIf-->
+<ng-template #noBorrado>
+    <h3>NO ha borrado nada</h3>
+</ng-template>
+
 <button (click)="borrarHeroe()">
-    Borrar Héroe de MARVEL
+    Borrar
 </button>
 
 <!-- Directiva ngFor para recorrer arrays-->
