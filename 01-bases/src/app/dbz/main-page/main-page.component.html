@@ -6,41 +6,16 @@
 <div class="row">
 
     <div class="col">
-        <app-personajes></app-personajes>        
+        <app-personajes>            
+        </app-personajes>
     </div>
 
     <div class="col">
-        <h3>Agregar nombre<small> {{ nuevo.nombre }}</small> y poder <small> {{ nuevo.poder}}</small></h3>
-        <hr>
-
-        <form (ngSubmit)="agregar()">
-            <input 
-            type="text"
-            placeholder="Nombre del personaje"
-            name="nombre"
-            [(ngModel)]="nuevo.nombre"
-            />
-
-            <input 
-            type="number" 
-            placeholder="Poder del personaje"
-            name="poder"
-            [(ngModel)]="nuevo.poder"
-            />
-            
-            <button type="submit">
-                Agregar
-            </button>
-        </form>
+        <app-agregar 
+        [nuevo]="nuevo"       
+        ></app-agregar>
     </div>
 
 </div>
-<!-- USamos el evento del FormsModule llamado ngSubmit 
-Con los corchetes estoy asignando alguna propiedad a este objeto(haciendo llamada al objeto de la clase MainPageComponent: one-way data binding).
-Ahora si la caja de texto emite un valor , le ponemos paréntesis para emitir o escuchar eventos:
-Metodo Input cuando cambie:si necesito el valor le paso $event.El código dentro de input sería:
-[value]="nuevo.nombre"
-(input) = "cambiarNombre($event)" pero usaremos NGMODEL
-ngModel entre corchetes y le establecemos el valor. Nos hará falta el atributo name de INPUT
-A este ngModel le ponemos también () para emitir ese evento que escuchamos y esa propiedad queremos que recaiga dentro de nuevo.nombre
-Este nombre que recibe y emite se puede llamar en Agregar usando {{}}-->
+<!-- Para el () event llamado onNuevoPersonaje. Voy a disparar en este evento el método agregarNuevoPersonaje que crearé en el padre main-page.TS.
+Luego le pasaré un $event que será argumento u otra variable que será de tipo Personaje-->
