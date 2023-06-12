@@ -1,0 +1,10 @@
+html{
+    height: 100%;
+}
+
+/*sidebar para las búsquedas que estamos haciendo*/
+#sidebar {
+    height: 100%;
+    min-height: 100vh;
+    min-width: 180px;
+}
