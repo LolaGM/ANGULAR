@@ -1,0 +1,15 @@
+<!-- Componente de búsqueda -->
+
+    <h5>Buscar:</h5>
+    <input 
+    type="text"
+    class="form-control"
+    placeholder="Buscar gifs"
+    (keyup.enter)="buscar()"
+    #txtBuscar
+    
+    >
+<!--     Evento keyup con método buscar que defino en el  archivo ts y que recibe el evento de tipo KeyboardEvent como nos indica la consola pero no lo vamos a usar.
+Nos interesa el valor recibido por el buscador  cuando se pulse la tecla ENTER del teclado así que al evento kEyup le pasamos el método enter que dispara.
+Creamos una referencia local para marcar el texto que quiero buscar y mandamos ese valor por el método. Este valor es lo que le está mandando a buscar y es un STRING.
+Ahora lo que queremos es borrar el contenido del input-->

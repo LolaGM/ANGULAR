@@ -1,0 +1,16 @@
+<div class="bg-info border-right p-3" id="sidebar">
+    <h3 class="text-light">GifsApp</h3>
+    <hr class="text-white" />
+    <div class="list-group list reset">
+        <!-- 
+        Usamos un ngFor para listar en el sidebar y con cada item usamos un pipe | que en este caso use la primera letra mayuscula. Sólo modifica el valor en la vista, no en la data interna
+        -->
+        <a 
+        *ngFor="let item of historial"
+        href="#"
+        class="list-group-item list-group-item-action">{{item | titlecase}}
+        </a>
+        <!-- <a href="#" class="list-group-item list-group-item-action">Dashboard </a>-->
+    </div>
+</div>
+<!-- Para parar que sea eterna y duplicada la introducción de items en la búsqueda -->
