@@ -1,2 +1,28 @@
 <!-- Componente de resultados de la búsqueda-->
-<p>Resultados works</p>
+<!-- Busco la propiedad del item gif para mostrar lo que me interesa -->
+<!-- <ul>
+    <li *ngFor="let gif of resultados">
+        {{ gif.title}}
+        
+    </li>
+</ul>-->
+
+<!-- Mostramos los resultados en columnas y filas mejor que en lista usando las medidas de col de diferentes dispositivos.
+Colocarmos varias card y dentro el NGFOR para leer cada gif de los resultados.
+Dentro del párrafo insertamos el gif con las propiedades deseadas.
+Dentro de img establezco el valor del source con propiedades con [] -->
+<div class="row">
+    <div *ngFor="let gif of resultados" class="col-md-4 col-sm-6 animate__animated animate__fadeIn">
+        <div class="card">
+            <img 
+            [src]="gif.images.downsized_medium.url" 
+            [alt]="gif.title"
+            class="card-img-top">
+            <div class="card-body">
+                <p class="card-text">
+                {{gif.title}}                
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

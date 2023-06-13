@@ -8,9 +8,12 @@
         <a 
         *ngFor="let item of historial"
         href="#"
-        class="list-group-item list-group-item-action">{{item | titlecase}}
+        class="list-group-item list-group-item-action"
+        (click) ="buscar( item)">
+        {{item | titlecase}}
         </a>
         <!-- <a href="#" class="list-group-item list-group-item-action">Dashboard </a>-->
     </div>
 </div>
 <!-- Para parar que sea eterna y duplicada la introducción de items en la búsqueda -->
+<!-- Para que cada búsqueda tenga su enlace y muestre esas imágenes buscadas, creo un evento () click llamado buscar con un item que creo en el sidebar component -->

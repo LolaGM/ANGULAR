@@ -14,4 +14,8 @@ export class SidebarComponent {
 
   constructor(private gifsService:GifsService){}
 
+  buscar(termino:string){
+    console.log(termino);//muestra por pantalla el click hecho en el sidebar
+    this.gifsService.buscarGifs(termino);
+  }
 }
