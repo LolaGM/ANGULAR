@@ -1,0 +1,16 @@
+<!-- Para ejemplo de INPUT -->
+
+<!-- <div class="alert alert-info" role="alert">
+    <strong>Componente HIJO:  {{ data }}</strong>
+</div> -->
+
+<div class="input-group mt-4">
+    <label>Enviar hijo a padre</label>
+    <input #valores type="text" class="form-control">
+    <button
+        class="btn btn-info"
+        (click)="enviarData(valores.value)">
+        Enviar color a padre
+    </button>
+</div>
+

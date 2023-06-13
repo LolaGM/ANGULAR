@@ -1,0 +1,31 @@
+<!-- Ejemplo de INPUT -->
+
+<!-- <div class="card">
+    <div class="card-header bg-dark text-white">
+        Componente PADRE
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Título</h5>
+        <app-hijo
+            [data]="dataPadre">
+    </app-hijo>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+</div> -->
+
+<!-- Ejemplo de OUTPUT -->
+<div class="card mt-5">
+    <div class="card-header bg-dark text-white">
+        Componente PADRE
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Colores que recibirá el padre desde el hijo</h5>
+        <ul class="list-group">
+            <li *ngFor="let color of arregloColores" class="list-group-item">{{ color }}</li>
+        </ul>
+        <app-hijo
+            (eventoEnviarData)="agregarDatosArreglo($event)"
+        
+        ></app-hijo>
+    </div>
+</div>
