@@ -15,7 +15,6 @@ export class AgregarComponent {
   }
 
   constructor(private dbzService:DbzService){
-
   }
   //para transmitir del hijo al padre usamos este Output que srive para emitr eventos simplemente importándolo.
   //podemos ponerle también un alias entre ('') o simplemente usar el objeto que vamos a crear (se suele poner on delante)

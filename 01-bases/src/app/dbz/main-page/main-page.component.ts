@@ -10,18 +10,19 @@ import { DbzService } from '../services/dbz.service';
 
 export class MainPageComponent {
     
+  
   //personajes: Personaje[] = [];
 
-    //defino el nuevo de tipo Personaje
-    nuevo: Personaje = {
-      nombre: 'Maestro Roshi',
-      poder: 1000
-    }
+  //defino el nuevo de tipo Personaje
+  nuevo: Personaje = {
+    nombre: 'Maestro Roshi',
+    poder: 1000
+  }
 
-    constructor( private dbzService: DbzService){
-      //this.personajes = this.dbzService.personajes;
-    }
-    //constructor de la clase con las propiedades privadas de la clase dbzService de tipo DbzService que se importa.Esto es una inyección de dependencias
+  constructor( private dbzService: DbzService){
+    //this.personajes = this.dbzService.personajes;
+  }
+  //constructor de la clase con las propiedades privadas de la clase dbzService de tipo DbzService que se importa.Esto es una inyección de dependencias
 }
 
 /*
