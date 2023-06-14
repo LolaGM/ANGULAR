@@ -7,7 +7,15 @@ import { Persona } from '../interface/persona';
 })
 export class HijoComponent {
 
-  mensajeHijo:string = 'Datos que el componente HIJO recibe del padre';
+  mensajeHijo:string = 'Texto que el componente HIJO recibe del padre';
+  
+  mensajeHijoPadre:string = 'Texto que el componente HIJO envía al padre';
+
+  datosHijoPadre: Persona = {
+    nombre: 'Giovanni',
+    empresa: 'Bosonit',
+    antiguedad: 2
+  };
 
   @Input() datosHijo: Persona = {
     nombre: '',
