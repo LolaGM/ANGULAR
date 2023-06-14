@@ -1,0 +1,20 @@
+h4{
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+h5{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+}
+
+.card{
+    margin-top: 2%;
+    background-color:#C2DEDC;
+    border-color: #116A7B;
+    min-width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}

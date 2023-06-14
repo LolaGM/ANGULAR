@@ -1,0 +1,15 @@
+<h4><i>"{{mensajePadre}}"</i></h4>
+<div>
+  <div>
+      <h4>Datos que el padre tiene y le pasa al hijo:</h4>
+      <h5>Nombre: <strong>{{datosPadre.nombre}}</strong></h5>
+      <h5>Empresa: <strong>{{datosPadre.empresa}}</strong></h5>
+      <h5>Antiguedad: <strong>{{datosPadre.antiguedad}}</strong></h5>
+  </div>
+</div>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <app-hijo [datosHijo]="datosPadre"></app-hijo>
+  </div>
+</div>
