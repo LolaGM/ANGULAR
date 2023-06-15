@@ -1,0 +1,20 @@
+<h2>Países</h2>
+<hr>
+<ul class="list-group">
+    <!-- Usamos el modulo de router link importándolo en shared.module -->
+    <!-- Para tener la navegación que nos indique donde estamos (active), añadimos una propiedad o atributo routerLinkActive="active" a la etiqueta li.
+    También añadiremos la clase routerLinkActiveOptions y dentro un objeto que tiene varias opciones, entre ellas exact:true que nos dice que tiene que ser verdad para aplicar en la ruta el Home-->
+    <li 
+        routerLink =""
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact:true}"
+        class="list-group-item">
+        Home Page
+    </li>
+    <li
+        routerLink ="about"
+        routerLinkActive="active" 
+        class="list-group-item">
+        About Page
+    </li>
+</ul>
