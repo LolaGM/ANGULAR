@@ -1,23 +1,46 @@
-<h4><i>"{{mensajePadre}}"</i></h4>
+<!-- INPUT ***********************************-->
 <div>
+  <h4>
+    <i>"{{ mensajePadre }}"</i>
+  </h4>
   <div>
+    <div>
+      <!--Es opcional mostrar estos datos del padre que el hijo va a coger en su componente. Normalmente se igualan ambos -->
       <h4>Datos que el padre tiene y le pasa al hijo:</h4>
-      <h5>Nombre: <strong>{{datosPadre.nombre}}</strong></h5>
-      <h5>Empresa: <strong>{{datosPadre.empresa}}</strong></h5>
-      <h5>Antiguedad: <strong>{{datosPadre.antiguedad}}</strong></h5>
+      <h5>
+        Nombre: <strong>{{ datosPadre.nombre }}</strong>
+      </h5>
+      <h5>
+        Empresa: <strong>{{ datosPadre.empresa }}</strong>
+      </h5>
+      <h5>
+        Antiguedad: <strong>{{ datosPadre.antiguedad }}</strong>
+      </h5>
+    </div>
   </div>
 </div>
 
-<!-- <h4><i>"{{mensajeHijoPadre}}"</i></h4>
- -->
+<!-- OUTPUT ***********************************-->
+<!-- Mostramos por pantalla en este caso el objeto recibido del hijo en el padre-->
+
+<h4>Datos que el padre recibe de parte del hijo:</h4>
+<span><i><strong>{{ mensajeRecibido }}</strong></i></span><br />
+<h5>
+  Nombre: <strong>{{ objetoRecibido.nombre }}</strong>
+</h5>
+<h5>
+  Empresa: <strong>{{ objetoRecibido.empresa }}</strong>
+</h5>
+<h5>
+  Antiguedad: <strong>{{ objetoRecibido.antiguedad }}</strong>
+</h5>
 <div>
-  <div>
-      <h4>Datos que el hijo tiene y le envía al padre:</h4>
-      <h5>output</h5>
+  <div class="card">    
+    <!-- llamamos al componente hijo y dentro de él los eventos con nombre del OUTPUT que son igual a los que el padre.ts tiene para recibir -->
+    <app-hijo
+      [datosHijo]="datosPadre"
+      (paraPadre)="recibirMensaje($event)"
+      (objetoParaPadre)="recibirObjeto($event)"
+    ></app-hijo>
   </div>
 </div>
-
-<div class="card" style="width: 18rem;">  
-    <app-hijo [datosHijo]="datosPadre"></app-hijo>  
-</div>
-

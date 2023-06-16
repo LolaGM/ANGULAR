@@ -1,7 +1,27 @@
 <div class="card-body">
-    <h5 class="card-title">{{mensajeHijo}}</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Nombre: <strong>{{datosHijo.nombre}}</strong></h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Empresa: <strong>{{datosHijo.empresa}}</strong> </h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Antiguedad: <strong>{{datosHijo.antiguedad}}</strong></h6>
+    <h5 class="card-title">{{ mensajeHijo }}</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+        Nombre: <strong>{{ datosHijo.nombre }}</strong>
+    </h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+        Empresa: <strong>{{ datosHijo.empresa }}</strong>
+    </h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">
+        Antiguedad: <strong>{{ datosHijo.antiguedad }}</strong>
+    </h6>
 </div>
 
+<h4>Mensaje que el hijo tiene y le envía al padre si haces click</h4>
+<div class="button-container">
+  <button
+    (click)="enviarMensajePadre()"
+    type="button"
+    class="btn btn-secondary"
+  >
+    Enviar mensaje a papá
+  </button>
+
+  <button (click)="enviarObjetoPadre()" type="button" class="btn btn-secondary">
+    Enviar objeto a papá
+  </button>
+</div>
