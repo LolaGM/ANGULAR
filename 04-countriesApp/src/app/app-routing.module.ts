@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
+import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
 //Construimos un módulo independiente dedicado sólo a la navegación de la app
 
@@ -17,6 +18,16 @@ const routes: Routes = [
         //clonamos la línea de arriba cambiando ahora la ruta por el about y hacemos lo mismo con el componente
         path: 'about',
         component: AboutPageComponent
+    },
+    {
+        //clonamos la línea de arriba cambiando ahora la ruta por el contact  y hacemos lo mismo con el componente
+        path: 'contact',
+        component: ContactPageComponent
+    },
+    {
+        //podemos hacer con countries lo mismo pero veremos cómo hacer la ruta para countries más adelante
+        path: 'countries',
+        component: ContactPageComponent
     },
 
     //cualquier otra ruta que no sea home o about, con el path comodín ** le hacemos redirigirse a la ruta home
