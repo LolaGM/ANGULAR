@@ -1,0 +1,10 @@
+<input 
+    type="text"    
+    class="form-control"
+    [placeholder]="placeholder"
+    (keyup.enter)="emitValue(txtInput.value)"
+    #txtInput
+    >
+
+    <!-- Usamos en este caso el evento () keyup por no haber botón de click y hacer enter. Se usa cuando se escribe en el input por parte del usuario.
+    Lo igualamos a la función y le pasamos la referencia local con el método value-->

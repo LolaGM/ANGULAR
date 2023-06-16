@@ -4,16 +4,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './shared/pages/home-page/home-page.component';
 import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
 import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
+import { CountriesModule } from './countries/countries.module';
 
 //Construimos un módulo independiente dedicado sólo a la navegación de la app
 
 //constante rutas de tipo Rutas que importamos y dentro tendremos todas las rutas. No olvidar importar el Modulo Router
 const routes: Routes = [
-    {
-        //cuando mostremos home en la ruta del navegador mostraremos el componente Home que queremos
+    //cuando mostremos home en la ruta del navegador mostraremos el componente Home que queremos
+
+    /* {        
         path: '',
         component: HomePageComponent
-    },
+    }, */
+
     {
         //clonamos la línea de arriba cambiando ahora la ruta por el about y hacemos lo mismo con el componente
         path: 'about',
@@ -25,15 +28,18 @@ const routes: Routes = [
         component: ContactPageComponent
     },
     {
-        //podemos hacer con countries lo mismo pero veremos cómo hacer la ruta para countries más adelante
+        //con el modulo countries y sus pages la ruta funciona así:
+        //hacemos carga perezosa de los hijos de tipo función llamada import que resuelve una promesa: then todo correcto, catch si hay error. 
+        //import: primera parte: path o ruta como un string que lleva al módulo (ya están unidas las rutas en countries routing para esas pages)
+        //Usamos la m de module como parámetro de then y de cada uno buscaremos con propiedad el módulo que me interesa Countries
         path: 'countries',
-        component: ContactPageComponent
+        loadChildren: () => import('./countries/countries.module').then(m => m.CountriesModule)
     },
 
     //cualquier otra ruta que no sea home o about, con el path comodín ** le hacemos redirigirse a la ruta home
     {
         path: '**',
-        redirectTo: ''
+        redirectTo: 'countries'
     },
 ]
 

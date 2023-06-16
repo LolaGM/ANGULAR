@@ -1,1 +1,20 @@
-<p>by-capital-page works!</p>
+<h2>By Capital</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
+        <shared-search-box 
+        (onValue)="searchByCapital($event)"
+        placeholder="Search for capital"
+        ></shared-search-box>
+    </div>
+</div>
+
+<!--Tabla de resultados que usaremos en country,region y capital-->
+<div class="row">
+    <div class="col">
+        <hr>
+        Results table
+    </div>
+</div>
