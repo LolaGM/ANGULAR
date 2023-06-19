@@ -1,0 +1,45 @@
+<!--Usamos el ng If para mostrar la alerta si la búsqueda no da coincidencias siendo el largo del arreglo igual a 0 y si hay un else con la ref table-->
+<div *ngIf="countries.length === 0; else table"  class="alert alert-warning text-center">
+    No countries available.
+</div>
+
+<!--Creamos un template y le colocamos la referencia local #-->
+<ng-template #table>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th> # </th>
+                <th> Code </th>
+                <th> Flag </th>
+                <th> Name </th>
+                <th> Capital </th>
+                <th> Population </th>
+                <th>  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--Recorro con un For el arreglo y añado también el índice y luego le añado 1-->
+            <tr *ngFor="let country of countries; let i = index">
+                <td> {{ i + 1 }}</td>
+                <td>
+                    {{ country.flag }}
+                </td>
+                <td>
+                    <img [src]="country.flags.svg" [alt]="country.name.common">
+                </td>
+                <td>
+                    {{ country.name.common }}
+                </td>
+                <td>
+                    {{ country.capital }}
+                </td>
+                <td>
+                    {{ country.population | number }}
+                </td>
+                <td>
+                    <a href="#">See more...</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

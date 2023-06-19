@@ -1,1 +1,20 @@
-<p>by-country-page works!</p>
+<h2>Country</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
+        <shared-search-box 
+        (onValue)="searchByCountry($event)"
+        placeholder="Search for country"
+        ></shared-search-box>
+    </div>
+</div>
+
+<!--Tabla de resultados que usaremos en country,region y capital-->
+<div class="row">
+    <div class="col">
+        <hr>
+        <countries-table [countries]="countries"></countries-table>
+    </div>
+</div>
