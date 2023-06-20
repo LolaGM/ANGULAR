@@ -2,9 +2,16 @@
     type="text"    
     class="form-control"
     [placeholder]="placeholder"
-    (keyup.enter)="emitValue(txtInput.value)"
+    (keyup)="onKeyPress(txtInput.value)"
     #txtInput
     >
 
-    <!-- Usamos en este caso el evento () keyup por no haber botón de click y hacer enter. Se usa cuando se escribe en el input por parte del usuario.
-    Lo igualamos a la función y le pasamos la referencia local con el método value-->
+<!-- Usamos en este caso el evento () keyup por no haber botón de click y hacer enter. Se usa cuando se escribe en el input por parte del usuario.
+Lo igualamos a la función y le pasamos la referencia local con el método value.
+
+(keyup.enter)="emitValue(txtInput.value)"
+
+Esta propiedad de método keyup vamos a comentarla para que sólo se busque cuando la palabra de búsqueda ya esté lista al hacer enter usando DEBOUNCER y el método creado en el search box y usando keyup y le pasamos como valor txtInput.value que es lo que entra por el input-->
+
+
+

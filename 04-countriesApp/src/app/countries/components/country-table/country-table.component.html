@@ -1,6 +1,6 @@
 <!--Usamos el ng If para mostrar la alerta si la búsqueda no da coincidencias siendo el largo del arreglo igual a 0 y si hay un else con la ref table-->
 <div *ngIf="countries.length === 0; else table"  class="alert alert-warning text-center">
-    No countries available.
+    No information available.
 </div>
 
 <!--Creamos un template y le colocamos la referencia local #-->
@@ -11,7 +11,7 @@
                 <th> # </th>
                 <th> Code </th>
                 <th> Flag </th>
-                <th> Name </th>
+                <th> Country Name </th>
                 <th> Capital </th>
                 <th> Population </th>
                 <th>  </th>

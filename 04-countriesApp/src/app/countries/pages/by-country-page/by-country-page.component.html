@@ -5,7 +5,7 @@
     <div class="col">
         <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
         <shared-search-box 
-        (onValue)="searchByCountry($event)"
+        (onDebounce)="searchByCountry($event)"
         placeholder="Search for country"
         ></shared-search-box>
     </div>

@@ -3,9 +3,10 @@
 
 <div class="row">
     <div class="col">
-        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
+        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT y le quitamos este evento:
+        (onValue)="searchByCapital($event)" y quitamos el delay del servicio-->
         <shared-search-box 
-        (onValue)="searchByCapital($event)"
+        (onDebounce)="searchByCapital($event)"
         placeholder="Search for capital"
         ></shared-search-box>
     </div>
@@ -15,6 +16,8 @@
 <div class="row">
     <div class="col">
         <hr>
+        <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
+
         <countries-table [countries]="countries"></countries-table>
     </div>
 </div>

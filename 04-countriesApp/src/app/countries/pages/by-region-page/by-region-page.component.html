@@ -2,12 +2,22 @@
 <hr>
 
 <div class="row">
-    <div class="col">
-        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
+    <div class="col text-center">
+        <!-- SearchBox que será un componente reutilizado que tiene OUTPUT y que quitaremos por no necesitarlo al buscar ya que tenemos opciones limitadas
+
         <shared-search-box 
-        (onValue)="searchByRegion($event)"
+        (onDebounce)="searchByRegion($event)"
         placeholder="Search for region"
         ></shared-search-box>
+    
+        Haremos un botón que recorra las regiones y cada uno de ellos llame a la region con el evento que teníamos creado de SearchByRegion. Para saber en qué region estamos usamos ngClass para aplicar CSS distinto a ese botón-->
+        <button 
+            class="btn mx-2"
+            [ngClass]="{'btn-outline-primary': selectedRegion === region}"
+            (click)="searchByRegion(region)"
+            *ngFor="let region of regions">
+                {{ region }}
+        </button>
     </div>
 </div>
 
