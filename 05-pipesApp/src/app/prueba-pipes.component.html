@@ -1,0 +1,32 @@
+<router-outlet></router-outlet>
+<!--Variable   public title = 'lOlA gArCíA';
+ mostrada tal y como está en origen-->
+<h1>Original: {{ title }}</h1>
+
+<!--Variable mostrada en pantalla con PIPE Uppercase-->
+<h1>PIPE Uppercase: {{ title | uppercase }}</h1>
+
+<!--Variable mostrada en pantalla con PIPE lowercase-->
+<h1>PIPE Lowercase: {{ title | lowercase }}</h1>
+
+<!--Variable mostrada en pantalla con PIPE titlecase-->
+<h1>PIPE Titlecase: {{ title | titlecase }}</h1>
+
+<!--Variable mostrada en pantalla con PIPE slice con dos argumentos que corta en la posición que le indiques-->
+<h1>PIPE Titlecase:... {{ title | slice:5 }}</h1>
+
+<!--Variable mostrada en pantalla con PIPE slice con dos argumentos que corta a partir de  la posición que le indiques-->
+<h1>PIPE Titlecase: {{ title | slice:0:5 }}...</h1>
+
+<!--Puedes combinar el uso de varios PIPES-->
+<h1>PIPE Titlecase: {{ title | slice:0:5 | titlecase }}...</h1>
+
+<!--Recargar el servidor en caso de no verse-->
+<!-- <p-button>Hola Mundo</p-button -->
+<!--también vale esta opción
+  <button pButton>Hola Mundo</button>
+-->
+
+<p-button label="Click" icon="pi pi-check" iconPos="left"></p-button>
+<i class="pi pi-check"></i>
+<p-button icon="pi pi-check"></p-button>
