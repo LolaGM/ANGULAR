@@ -19,6 +19,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   @Input() 
   public placeholder:string = '';
 
+  @Input() 
+  public initialValue:string = ''; //creamos esta propiedad que recibe la busqueda que luego pasamos al input en html
+
   @Output() 
   public onValue = new EventEmitter<string>();  
 

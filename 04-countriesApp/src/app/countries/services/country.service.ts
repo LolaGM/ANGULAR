@@ -1,9 +1,11 @@
 //escribimos en el archivo vacío a-service y nos aparece la opción http client que  elegimos que luego importaremos como HttpClientModule en app.module o donde vayamos a necesitarlo
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, Observable, of, map, delay } from 'rxjs';
+import { catchError, Observable, of, map, tap } from 'rxjs';
 
 import { Country } from '../interfaces/country.interface';
+import { CacheStore } from '../interfaces/cache-store.interface';
+import { Region } from '../interfaces/region.type';
 
 @Injectable({providedIn: 'root'})
 
@@ -13,16 +15,29 @@ export class CountriesService {
     //copiamos la base de la URL que nos interesa
     private apiUrl:string = 'https://restcountries.com/v3.1';
 
-    //guardamos en caché la información de cada búsqueda al volver al componente: por capital, pais y región guardo el término de busqueda, los países hallados. Creamos una nueva interface
-    public cacheStore = {
+    //guardamos en caché la información de cada búsqueda al volver al componente: por capital, pais y región guardo el término de busqueda, los países hallados. Creamos una nueva interface cache store
+    public cacheStore: CacheStore = {
         byCapital:   { term: '', countries: []},
         byCountries: { term: '', countries: []},
-        byRegion:    { term: '', countries: []}
+        byRegion:    { region: '', countries: []}, //tipo region que acepta string vacío
     } 
 
     constructor(private http: HttpClient) {//cambiamos a private http
         //console.log('CountriesService init');
-     } 
+    } 
+
+    //para guardar en local store al información y que no se borre al actualizar la página, creamos método privado
+    private saveToLocalStorage()  { //coge el objeto cacheStore y lo graba
+        localStorage.setItem('cacheStore', JSON.stringify(this.cacheStore));//guardamos el string como JSON en este cacheStore
+        //llamaremos este método cada vez que hagamos una modificación de este objeto. Hay observables que están pendientes de las modificaciones de objetos
+    }
+
+    private loadFromLocalStorage() {//es igual que save pero primero verificamos si la carga tiene este elemento
+        //si no lo tiene ! no hay nada que hacer y retorna
+        if( !localStorage.getItem('cacheStore')) return;
+        //si existe, este cacheStore va a ser igual a
+        this.cacheStore = JSON.parse(localStorage.getItem('cacheStore')! )//para leer este objeto
+    }
 
     //creamos un método privado (para refactorizar los 3 métodos search menos el Alpha Code) que va a devolver ubn observable que emite nuestro contry como un arreglo
     //le añadimos e importamos un oeprador RXJS "delay" para que se muestre mientras carga la búsqueda
@@ -56,21 +71,38 @@ export class CountriesService {
 
         //creamos una constante que contenga la URL
         const url = `${ this.apiUrl }/capital/${ term }`;
-        return this.getCountriesRequest(url);            
+        return this.getCountriesRequest(url) //con este observable que hace solicitud, puedo usar los operadores de RXJS que permiten ejecutar cierto código cuando esta solicitud se haga
+            .pipe(
+                tap(countries => this.cacheStore.byCapital = {term, countries}),//dispara un efecto secundario: cuando venga un mensaje en el observable, pasa por tap y se ejecuta, pero no va a influir en la misión del observable
+                //también necesitaría grabar el término de búsqueda term así que igualo el objeto this a otro objeto que contiene los term y los countries y siendo redundantes quitamos cada propiedad: on objeto cuya propiedad apunta a un objeto que tiene el mismo nombre se elimina en ECMA6
+                tap( () =>this.saveToLocalStorage())//para guardar  
+            )       
     }
 
 
     searchCountry( term: string ) : Observable<Country[]>{
 
         const url = `${ this.apiUrl }/name/${ term }`; //porque name es el nombre del endpoint
-        return this.getCountriesRequest(url);
+        return this.getCountriesRequest(url)
+            .pipe(
+                tap(countries => this.cacheStore.byCountries = {term, countries}),//dispara un efecto secundario: cuando venga un mensaje en el observable, pasa por tap y se ejecuta, pero no va a influir en la misión del observable
+                //también necesitaría grabar el término de búsqueda term así que igualo el objeto this a otro objeto que contiene los term y los countries y siendo redundantes quitamos cada propiedad: on objeto cuya propiedad apunta a un objeto que tiene el mismo nombre se elimina en ECMA6
+                tap( () =>this.saveToLocalStorage())//para guardar  
+
+            ) 
     }
 
 
-    searchRegion( region: string ) : Observable<Country[]>{
+    searchRegion( region: Region ) : Observable<Country[]>{ //cambio el tipo a Region
 
         const url = `${ this.apiUrl }/region/${ region }`; //porque region es el nombre del endpoint
-        return this.getCountriesRequest(url);
+        return this.getCountriesRequest(url)
+            .pipe(
+                tap(countries => this.cacheStore.byRegion = {region, countries}),//dispara un efecto secundario: cuando venga un mensaje en el observable, pasa por tap y se ejecuta, pero no va a influir en la misión del observable
+                //también necesitaría grabar el término de búsqueda term así que igualo el objeto this a otro objeto que contiene los term y los countries y siendo redundantes quitamos cada propiedad: on objeto cuya propiedad apunta a un objeto que tiene el mismo nombre se elimina en ECMA6
+                tap( () =>this.saveToLocalStorage())//para guardar  
+
+            ) 
     }    
 }
 

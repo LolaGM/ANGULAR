@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
-import { Country } from '../../interfaces/country.interface';
+import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/country.service';
 
-//creamos un type para contener el listado de regiones de las que sólo puede ser una usando | y con esto hacemos que no se pueda modificar el listado de estas opciones
-type Region = 'Africa'| 'Americas'| 'Asia'| 'Europe'|'Oceania';
+import { Country } from '../../interfaces/country.interface';
+import { Region } from '../../interfaces/region.type';
+
 
 @Component({
   selector: 'app-by-region-page',
   templateUrl: './by-region-page.component.html',
 })
 
-export class ByRegionPageComponent {
+export class ByRegionPageComponent implements OnInit {
 
   public countries:Country[] = []; //iniciamos arreglo vacío
-  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];//arreglo de regiones de tipo TYPE definido que tiene siempre el mismo listado de regiones que hemos convertido (es mejor que usar una interface porque éstas se amplian)
+  public regions: Region[] = ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'];//arreglo de regiones de tipo TYPE definido que tiene siempre el mismo listado de regiones que hemos convertido (es mejor type que usar una interface porque éstas se amplian)
   public selectedRegion?:Region; //propiedad publica para saber en que región se encuentra el usuario que haya pulsado una opción que luego llamamos en el método
+  public initialValue:string = ''; //creamos propiedad para guardar el valor inicial de búsqueda como string vacío que tambien colocamos en el ngOnInit
+
   
   //inyectamos el service creado con la URL que luego llamamos con this
   constructor(private countriesService:CountriesService){}
+
+  ngOnInit(): void {
+    this.countries = this.countriesService.cacheStore.byRegion.countries;
+    this.selectedRegion = this.countriesService.cacheStore.byRegion.region;
+  }
     
   //creamos una función con un valor de tipo string que no regresa nada
   searchByRegion(region:Region):void{
@@ -32,6 +39,4 @@ export class ByRegionPageComponent {
     
     //console.log({term});//mostramos el objeto
   }
-
-
 }

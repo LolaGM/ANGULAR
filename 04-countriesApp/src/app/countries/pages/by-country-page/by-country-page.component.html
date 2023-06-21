@@ -6,7 +6,8 @@
         <!-- SearchBox que será un componente reutilizado que tiene OUTPUT-->
         <shared-search-box 
         (onDebounce)="searchByCountry($event)"
-        placeholder="Search for country"
+        [initialValue]="initialValue"
+        placeholder="Search by country"
         ></shared-search-box>
     </div>
 </div>
@@ -15,6 +16,7 @@
 <div class="row">
     <div class="col">
         <hr>
+        <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
         <countries-table [countries]="countries"></countries-table>
     </div>
 </div>
