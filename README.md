@@ -1,8 +1,7 @@
 <h1> ANGULAR JS framework</h1>
 <div style="display:flex; flex-wrap:wrap; justify-content:center; margin:auto">
-   <img style="width:1000px; height:250px; margin:12px" src="https://github.com/LolaGM/ANGULAR/assets/116545851/522554f0-d8d2-4cc5-ab66-8de7df2d92c6">
+   <img style="width:1000px; height:250px; margin:12px" src="https://github.com/LolaGM/ANGULAR/assets/116545851/b7312a51-6c34-45ed-acce-119a90911d82">
 </div>
-
 
 <h2>1. Description</h2>
 <p>Exercises and practice following lessons from UDEMY online course during internship at Bosonit company.</p>
