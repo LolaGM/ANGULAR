@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MenuComponent } from './components/menu/menu.component';
 
 import { PrimeNgModule } from '../prime-ng/prime-ng.module';
-import { MenubarModule } from 'primeng/menubar'; //menubar module importado de prime ng
+//import { MenubarModule } from 'primeng/menubar'; //menubar module importado de prime ng
 
 
 @NgModule({
@@ -14,7 +14,7 @@ import { MenubarModule } from 'primeng/menubar'; //menubar module importado de p
   imports: [
     CommonModule,
     PrimeNgModule,//modulo personalizado
-    MenubarModule
+    //MenubarModule //no hace falta porque ya está en primeNG que contiene todos los módulos
   ],
   exports:[
     MenuComponent

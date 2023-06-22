@@ -1,29 +1,82 @@
-<p-panel [showHeader]=false>  
-    <h1>Pipes Básicos</h1>
+<p-panel header="Pipes Básicos" class="p-1">   
     <p>
         Pipes incluidos en Angular - Usualmente en el Common Module
     </p>
 </p-panel>
 
-<div class="p-grid">
-    <div class="p-col-4">
+<!--Llamamos a las variables y vemos cómo los PIPEs convierte el dato sólo visualmente sin tocar el original-->
+<div class="grid">
+    <div class="col-12 md:col-4">
         <p-card header="uppercase">
-            1
+            {{ nameLower | uppercase }}
         </p-card>
     </div>
-    <div class="p-col-4">
+
+    <div class="col-12 md:col-4">
         <p-card header="lowercase">
-            2
+            {{ nameUpper| lowercase }}
         </p-card>
     </div>
-    <div class="p-col-4">
+
+    <div class="col-12 md:col-4">
         <p-card header="titlecase">
-            3
+            {{ fullName | titlecase }}
         </p-card>
     </div>
+
+    <div class="col-12 md:col-6">
+        <p-card header="date equivalence">
+            <ol>
+                <li> fecha  </li>
+                <li> fecha | date </li>
+                <li> fecha | date:'short' </li>
+                <li> fecha | date:'long' </li>
+                <li> fecha | date:'MMMM' </li>
+                <li> fecha | date:'MMMM dd,yyyy' </li>
+            </ol>
+
+            <hr>
+
+            <ol>
+                <li> fecha | date: 'long': 'GMT-6'</li>
+                <li> fecha | date: 'long': 'GMT-4'</li>
+                <li> fecha | date: 'long':'':'es-HN'</li>
+                <li> fecha | date: 'long':'':'en-US'</li>
+                <li> fecha | date: 'long':'':'fr-CA'</li>
+
+
+            </ol>
+        </p-card>
+    </div>
+
+    <div class="col-12 md:col-6">
+        <p-card header="date result">
+            <ol>
+                <li>  {{ customDate }}  </li>
+                <li>  {{ customDate | date }}   </li>
+                <li>  {{ customDate | date:'short'  }}   </li>
+                <li>  {{ customDate | date:'long'  }}   </li>
+                <li>  {{ customDate | date:'MMMM'  }}   </li>
+                <li>  {{ customDate | date:'MMMM dd,yyyy'  }}   </li>
+            </ol>     
+            
+            <hr>
+
+            <ol>
+                <li> {{ customDate | date: 'long': 'GMT-6' }}</li>
+                <li> {{ customDate | date: 'long': 'GMT-4' }}</li>
+                <li> {{ customDate | date: 'long':'':'es-HN' }}</li>
+                <li> {{ customDate | date: 'long':'':'en-US' }}</li>
+                <li> {{ customDate | date: 'long':'':'fr-CA' }}</li>
+            </ol>
+        </p-card>
+    </div>
+
 </div>
 
 <!--Dentro del panel hay un hueco que se ve en la vista porque podríamos pasarle atributos y que se vean en pantalla. En nuestro caso no lo queremos así que indicaremos esto    [showHeader]=false 
+[showHeader]="false"
+En el p-panel quitamos <h1>Pipes Básicos</h1> y lo ponemos como header en p-panel
 
 A las p-card podemos ponerle header con el texto que queramos por ejemplo el nombre del PIPE que estamos estudiando-->
 

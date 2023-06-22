@@ -1,1 +1,44 @@
-<p>numbers-page works!</p>
+<p-panel header="Pipes numéricos" class="p-1">   
+    <p>
+        Pipes incluidos en Angular - Usualmente en el Common Module
+    </p>
+</p-panel>
+
+<div class="grid">
+    <div class="col-12 md:col-4">
+        <p-card header="Ventas netas" subheader="del presente año">
+            {{ totalSells | number: '1.2-2' }}
+        </p-card>
+    </div>  
+    
+    <div class="col-12 md:col-4">
+        <p-card header="Ventas netas + extra" subheader="del presente año">
+            {{ totalSells + 1235 | number: '1.2-2' }}
+        </p-card>
+    </div>  
+
+    <div class="col-12 md:col-4">
+        <p-card header="Ventas brutas" subheader="del presente año">
+            {{ totalSells | currency: 'EUR': 'symbol-narrow':'1.4-4' }}
+        </p-card>
+    </div>   
+
+    <div class="col-12 md:col-4">
+        <p-card header="Ganancia porcentual" subheader="del presente año">
+            {{ percent | percent : '1.2-2'}}
+        </p-card>
+    </div>   
+</div>
+
+<!--
+NUMBER PIPE
+CURRENCY PIPE
+PERCENT PIPE
+
+Para usar el PIPE number podemos especificar decimales (DECIMAL PIPE), números que queremos mostrar y demás formatos que queramos darle a la numeración original por pantalla: 
+
+-Ver DOC  oficial https://docs.angular.lat/api/common/DecimalPipe
+-Para las monedas debemos saber el ISO de cada moneda.
+-Ojo con el redondeo de decimales por si necesitamos precisión
+-En porcentaje coincide el nombre de la propiedad con el PIPE %
+-->
