@@ -6,7 +6,7 @@
 
 <div class="grid">
     <div class="col-12 md:col-6">
-        <!--Sustituimos la palabra por gender y mostrará uno y otro según male o female usando el PIPE in118Select-->
+        <!--Sustituimos la palabra por gender y mostrará uno y otro según male o female usando el PIPE in118Select que contiene el objeto con todas las posibilidades ya escritas-->
         <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
             <p>
                 Saludos {{ name }}, es un placer {{ gender  | i18nSelect: invitationMap}} a nuestro evento.
@@ -14,39 +14,83 @@
             <p-button
             (click)="changeClient()"
             label="Cambiar persona"
-            >               
-
+            >
             </p-button>
         </p-fieldset>    
     </div>   
 
     <div class="col-12 md:col-6">
+        <!--Cuando el plural ya no es necesario porque el número de algo es singular o cero, usaremos el PIPE in118nPlural seguido de la propiedad que contiene el objeto con todas las posibilidades ya escritas-->
         <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
-            <p>Actualmente tenemos 10 femcoders trabajando</p>
-        </p-fieldset>    
+            <p>Actualmente {{ clients.length | i18nPlural: clientsMap }}</p>
+            <p-button
+            (click)="deleteClient()"
+            label="Borrar cliente"
+            >
+            </p-button>  
+        </p-fieldset>
+        
     </div>   
 
     <div class="col-12 md:col-6">
+        <!--Con SLICE PIPE cortamos cosas por donde queremos en un arreglo[] o string: como primer argumento indicamos la posición del arreglo,y el segundo argumento cuantos corta desde esa posición. 
+        Recordemos que SLICE no es inclusivo y lo que corta es lo anterior
+        Si usamos valores negativos corta por el final-->
         <p-fieldset legend="Slice Pipe" [toggleable]="true">
+            <b>Original</b>
+            <pre>{{ clients }}</pre>
+
+            <b>Slice:0:2</b>
+            <pre>{{ clients | slice:0:2}}</pre>
+
+            <b>Slice:1:2</b>
+            <pre>{{ clients | slice:1:2}}</pre>
+
+            <b>Slice:1:3</b>
+            <pre>{{ clients | slice:1:3}}</pre>
+
+            <b>Slice:0:-1</b>
+            <pre>{{ clients | slice:0:-1}}</pre>
         </p-fieldset>    
     </div>   
 
     <div class="col-12 md:col-6">
-        <p-fieldset legend="Json Pipe" [toggleable]="true">
-        </p-fieldset>    
-    </div>   
-
-    <div class="col-12 md:col-6">
+        <!--Con KeyValue PIPE tomamos un objeto y lo barremos como si fuera un arreglo-->
         <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+
+            <ul>
+                <!-- <li *ngFor="let item of person">  no se puede hacer al ser person un objeto y no un arreglo que se barra con ngFor. Necesitaremos el PIPE keyvalue. Luego pasamos el item por el Json PIPE y nos aparecen pares de KEY : VALUE  {{ item | json }} y ordena estas propiedades alfabéticamente. Accedemos a la clave de cada item y le pasamos PIPE-->
+                <li *ngFor="let item of person | keyvalue">
+                    <b>  {{ item.key  | titlecase}} : </b> {{ item.value }}
+                </li>
+            </ul>
         </p-fieldset>    
     </div>  
+
+    <div class="col-12 md:col-6">
+        <!--Con Json PIPE formateamos objeto en formato Json por pantalla además de usar la etiqueta HTML pre de preformato-->
+        <p-fieldset legend="Json Pipe" [toggleable]="true">
+            <pre>{{ person | json}} </pre>
+        </p-fieldset>    
+    </div>   
     
     <div class="col-12 md:col-6">
+        <!--Con Async PIPE trbajamamos más con Observables aunque también con Promesas.
+        Si le pasamos  PIPE Json   <pre>{{ myObservableTimer | json }} </pre>
+        veremos source en pantalla y eso es correcto.
+        Con el IF si no tenemos el valor,mostraremos  por pantalla mientras esperan.
+        Tenemos dos suscripciones a la propiedad observable-->
+
         <p-fieldset legend="Async Pipe" [toggleable]="true">
+
+            <pre *ngIf="(myObservableTimer | async)">Resolviendo observable... </pre>
+            <pre>{{ myObservableTimer | async }} </pre>
+
+            <pre *ngIf="(myObservableTimer | async)">Resolviendo promesa... </pre>
+            <pre>{{ promiseValue | async }} </pre>
         </p-fieldset>    
     </div>   
 </div>
 
-<!--Legend contiene el id del pipe personalizado que tiene un código internacional
-
+<!--Legend contiene el id del pipe personalizado que tiene un código internacional.
 Le añadimos toggleable true para desplegar o no con + y - en pantalla-->
