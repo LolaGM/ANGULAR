@@ -1,0 +1,69 @@
+<p-panel header="Pipes Personalizados" class="p-1">   
+    <p>
+        Pipes personalizados - creados por {{ 'nosotros' | toggleCase:isUpperCase }}
+    </p>
+</p-panel>
+<!--Usamos el pipe personalizado al que le pasamos argumentos personalizados según lo que queramos.
+En este caso como argumento le decimos booleano TRUE por lo que devuelve MAYUSC.
+Si no indico nada en toggleCase por defecto es false y "nosotros" aparece en minusc-->
+
+<!--Aprovechando las propiedades que traen los botones en PrimeNG, encontramos onClick como evento pero podemos usar el de siempre (click) y llamamos al método creado.Además indicamos en el pipe como argumento isUpperCase con el que haremos que al pulsar cambie de mayusc a minusc-->
+<p-toolbar>   
+    <div class="p-toolbar-group-start">
+        <p-button 
+                label="ToggleCase"                 
+                icon="pi pi-search"
+                (click)="toggleUpperCase()"
+                ></p-button>
+    </div>    
+
+    <div class="p-toolbar-group-end">     
+        <p-button class="mr-2"
+                label="Por nombre"                
+                icon="pi pi-sort"
+                (click)="changeOrder('name')"
+                class="ui-button-success"></p-button>
+
+        <p-button class="mr-2"
+                label="Por volar"                
+                icon="pi pi-sort"
+                class="ui-button-danger"
+                (click)="changeOrder('canFly')"
+                ></p-button>
+
+        <p-button class="mr-2" 
+                label="Por color"
+                icon="pi pi-sort" 
+                class="ui-button-help"
+                (click)="changeOrder('color')"
+                ></p-button>
+    </div>
+</p-toolbar>
+
+<!--Recordemos el atributo label para indicar el texto en los botones-->
+
+<div class="grid">
+    <div class="col mt-2">
+
+        <p-panel header="Héroes">
+            <p-table [value]="heroes | sortBy:orderBy" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>¿Vuela?</th>
+                        <th>Color</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-hero> <!--Es como un ngFor que recorre el arreglo--->
+                    <tr>
+                        <td>{{hero.name}}</td>
+                        <td>{{hero.canFly | canFly}}</td>
+                        <td>{{hero.color}}</td>
+                    </tr>
+                    <!--Añadimos el pipe personalizado--->
+                </ng-template>
+            </p-table>      
+        </p-panel>      
+        
+    </div>
+</div>

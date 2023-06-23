@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { interval, tap, timeout } from 'rxjs';
 
 @Component({
-  selector: 'app-uncommon-page',
+  selector: 'products-uncommon-page',
   templateUrl: './uncommon-page.component.html',
-  styleUrls: ['./uncommon-page.component.css']
 })
 
 //en orden de Pipes haremos las propiedades

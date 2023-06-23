@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BasicsPageComponent } from './pages/basics-page/basics-page.component';
 import { NumbersPageComponent } from './pages/numbers-page/numbers-page.component';
 import { UncommonPageComponent } from './pages/uncommon-page/uncommon-page.component';
+import { OrderComponent } from './pages/order/order.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,11 @@ const routes: Routes = [
   {
     path: 'uncommon',
     component: UncommonPageComponent,
+  },
+  //pipes personalizados ruta
+  {
+    path: 'custom',
+    component: OrderComponent,
   },
   {
     path: '**', //path comodín para definir cualquier ruta que entre por aquí que redirigimos a vacío para que sea la ruta por defecto
