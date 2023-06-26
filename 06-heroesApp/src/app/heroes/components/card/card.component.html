@@ -6,7 +6,11 @@
         <mat-card-subtitle><b>{{ hero.alter_ego}}</b></mat-card-subtitle>
     </mat-card-header>
 
-    <!--TODO:imagen-->
+    <!--La imagen usamos el tipado de Material
+    SRC recibe la ruta (que podría cambiar) con comillas dobles concatenada como el alt. Usaremos un PIPE para ello.
+    Si la imagen no existiera, deberíamos podner una imagen por defecto-->
+
+    <img mat-card-image [src]="'assets/heroes/'+ hero.id + '.jpg'" [alt]="hero.superhero">
 
     <mat-card-content class="mt-2">
         <h4>{{ hero.publisher}}</h4>
