@@ -1,0 +1,55 @@
+<mat-sidenav-container fullscreen>
+
+    <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
+        <mat-toolbar color="primary">
+            <span>Menú</span>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </mat-toolbar>
+<!--Coloco aquí el contenido del menú definido en el archivo ts que recorro con un ngFor y con routerLink accedo a la propiedad url de cada item de sidebarItems y luego con cada icono que recorro llamo con interpolaccion {{}} a los iconos y labels de cada uno. Propiedad para centrar los iconos: matListItemIcon.
+Para cerrar el menú otra vez click-->
+        <mat-nav-list>
+            <mat-list-item 
+            *ngFor="let item of sidebarItems"
+            [routerLink]="item.url"
+            (click)="sidenav.toggle()">
+                <mat-icon matListItemIcon>
+                    {{ item.icon }}  
+                </mat-icon>
+            {{ item.label }}
+            </mat-list-item>
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <span class="spacer"></span>
+        <button mat-button>
+            Logout
+        </button>
+
+    </mat-toolbar>
+
+    <div class="container">
+                
+        <!--Muestro las rutas hijas con router outlet-->
+        <router-outlet></router-outlet>
+
+    </div>
+
+</mat-sidenav-container>
+<!--Uso Material para contener el menú y le indico pantalla completa.
+Le indico referencia local sidenav que apunta al componente como tal.
+EN modo PUSH con ngstyle de 250px
+Al botón le paso evento click pasaándole la referencia sidenav a la que aplico método toggle()
+Ahora un icono de menu de hamburguesa.
+Como no aparece nada en pantalla, usamos el mat-toolbar al que le ponemos color por defecto-->
+
+
+
