@@ -2,7 +2,7 @@
 //importar módulo http client en app module
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError, map, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environments } from 'src/environments/environments';
 
@@ -37,8 +37,36 @@ export class HeroesService { //cambiamos el nombre a HeroesService
     getSuggestions( query:string ): Observable<Hero[]> {
 
         return this.http.get<Hero[]>(`${this.baseUrl }/heroes?q=${query}&_limit=6`);
-
     }
+
+    //CRUD heroes: create con método HTTP request de tipo POST que apunta a donde tiene que crear el nuevo recurso de heroe y como segundo argumento la data que mando
+    addHero(hero: Hero): Observable<Hero>{
+        return this.http.post<Hero>(`${this.baseUrl }/heroes`, hero);
+    }
+
+    //CRUD heroes: update con método HTTP request PATCH (actualización parcial de alguna propiedad del objeto) y decirle el id del objeto pero antes hacermos una validación de si existe
+    updateHero(hero: Hero): Observable<Hero>{
+
+        if (!hero.id) throw Error('El id de Héroe es necesario');
+        return this.http.patch<Hero>(`${this.baseUrl }/heroes/${ hero.id }`, hero);
+    }
+
+    //CRUD heroes: delete con método HTTP request DELETE y decirle el id del objeto.
+    //Como se haya borrado ya, nos deberá indicar esto si es verdadero o falso
+    deleteHeroById(id: string): Observable<boolean>{
+
+        return this.http.delete(`${this.baseUrl }/heroes/${ id }`)
+            .pipe(
+                catchError( err => of(false) ),
+                map( resp =>true)
+            );
+
+        
+        //regresará un objeto y usaremos la misma dirección pero sin parámetro hero.
+        //Si está vacío o es un error (en caso de que no exista) usamos PIPE y catchError y con OF regresa un nuevo objeto false
+        //mapeamos para transformar la respuesta de la petición HTTP delete si es que llegamos a este punto después del catcherror
+    }
+
     
 
 }

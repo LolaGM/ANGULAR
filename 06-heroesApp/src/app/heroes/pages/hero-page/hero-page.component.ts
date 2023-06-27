@@ -8,8 +8,7 @@ import { Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'app-hero-page',
   templateUrl: './hero-page.component.html',
-  styles: [
-  ]
+  styleUrls: [ './hero-page.component.css']
 })
 export class HeroPageComponent implements OnInit{ //si necesito petición http en cuanto el componente esté listo: onInit
 
