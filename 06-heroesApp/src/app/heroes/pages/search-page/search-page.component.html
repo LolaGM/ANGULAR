@@ -1,1 +1,41 @@
-<p>search-page works!</p>
+
+
+<div class="flex flex-column">
+
+    <h3>Buscador</h3>
+
+    <mat-form-field>
+        <mat-label>Buscador de héroes</mat-label>
+        <!--Cada vez que el usuario escriba, mandamos a llamar este método search-->
+        <input
+            type="text"
+            matInput
+            [formControl]="searchInput"
+            (input)="searchHero()"
+            [matAutocomplete]="auto"
+            >           
+    
+        <!--#autocomplete indica a qué elemento va a apuntar: coordenadas HTML donde irá así que lo incluimos en el input seguido de la ref local auto.
+        En el mat option indicamos el For y el value con valores hero sin el pipe ASYNC.
+        Cuando demos enter al seleccionar una búsqueda, Material nos da evento optionSelected al que le pasamos un métod que crearemos-->
+        <mat-autocomplete 
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            (optionSelected)="onSelectedOption($event)">
+                <mat-option *ngFor="let hero of heroes" [value]="hero">
+                {{hero.superhero}}
+                </mat-option>
+                <!--Ahora en caso de que la búsqueda sea de términos no existentes, queremos mostrar un mensaje interpolando el valor de la búsqueda hecha en el input.
+                Le haremos una condicional de que sólo aparezca si el largo del arreglo heroes es igual a cero y el valor del search es mayor a cero-->
+                <mat-option
+                    *ngIf="heroes.length === 0 && searchInput.value && searchInput.value.length > 0"    
+                    value="">
+                    No hay resultados con la búsqueda {{ searchInput.value }}
+                </mat-option>
+        </mat-autocomplete>     
+        
+    </mat-form-field>
+
+    {{ selectedHero | json}}
+    
+</div>

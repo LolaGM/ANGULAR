@@ -11,8 +11,9 @@ import { ListPageComponent } from './pages/list-page/list-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { NewPageComponent } from './pages/new-page/new-page.component';
 import { CardComponent } from './components/card/card.component';
+import { HeroImagePipe } from './pipes/hero-image.pipe';
 
-
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,16 @@ import { CardComponent } from './components/card/card.component';
     ListPageComponent,
     SearchPageComponent,
     NewPageComponent,
-    CardComponent
+    CardComponent,
+
+    //PIPE
+    HeroImagePipe //los PIPES se declaran e importan
   ],
   imports: [
     CommonModule,
     HeroesRoutingModule,
-    MaterialModule//importo el MaterialModule para usar los módulos
+    MaterialModule, //importo el MaterialModule para usar los módulos
+    ReactiveFormsModule // importo el modulo de formularios
   ]
 })
 export class HeroesModule { }

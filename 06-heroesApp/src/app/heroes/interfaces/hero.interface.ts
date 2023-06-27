@@ -8,6 +8,7 @@ export interface Hero {
     alter_ego:        string;
     first_appearance: string;
     characters:       string;
+    alt_img?:         string; //creamos la propiedad de tipo string de manera ?opcional
 }
 
 export enum Publisher {

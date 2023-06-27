@@ -1,1 +1,96 @@
-<p>new-page works!</p>
+<h1>
+    Editar / Agregar
+    héroe
+    <small>¿Héroe o Heroína?</small>
+</h1>
+
+
+<div class="grid">
+    <div class="col-12 sm:col-6">
+        <mat-card>
+            <mat-card-content>
+                <div class="grid">
+                    <mat-form-field class="col-12 sm:col-6">
+                        <mat-label>
+                            Super héroe
+                        </mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            required                        
+                        >
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 sm:col-6">
+                        <mat-label>
+                            Alter ego
+                        </mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            required                        
+                        >
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Primera aparición
+                        </mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            required                        
+                        >
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Personajes
+                        </mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            required                        
+                        >
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Creador
+                        </mat-label>
+                        <mat-select required="">
+                            <mat-option
+                                *ngFor="let publisher of publishers"
+                                [value]="publisher.id">
+                                {{ publisher.desc }}
+                            </mat-option>
+                            <!--Creamos opciones de selección como un objeto que sea recorrido con ngFor con el id y con interpolación mostramos la descripcion-->
+                        </mat-select>
+                    </mat-form-field>
+                </div>   
+                
+                <div class="flex justify-content-between">
+                    <!--Botones para eliminar y guardar-->
+                    <button mat-raised-button
+                    color="warn">
+                    <mat-icon>delete</mat-icon>
+                        Borrar
+                    </button>
+
+                    <button mat-raised-button
+                    color="primary">
+                    <mat-icon>save</mat-icon>
+                        Guardar
+                    </button>
+                </div>
+                
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <!--Imagen del héroe que agregaremos que no lleva propiedades entre []-->
+    <div class="col-12 sm:col-6">
+        <mat-card>
+            <img src="" alt="" mat-card-image>
+        </mat-card>
+    </div>
+</div>

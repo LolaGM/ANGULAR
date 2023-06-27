@@ -2,7 +2,7 @@
 //importar módulo http client en app module
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, of } from 'rxjs';
 import { Hero } from '../interfaces/hero.interface';
 import { environments } from 'src/environments/environments';
 
@@ -19,6 +19,26 @@ export class HeroesService { //cambiamos el nombre a HeroesService
         return this.http.get<Hero[]>( `${this.baseUrl}/heroes`);
         //retorna este http con pètición que retorna Hero como arreglo y para usar este arreglo nos creamos una propiedad baseUrl.
         //llamamos con ``  una interpolación a la propiedad y le pasamos el endpoint heroes
+    }
+
+    //en este servicio recibimos el ID del héroe por string y retornamos un Observable que va a resolver o emitir un Hero o un UNDEFINED (por si es un ID que no existe)
+    getHeroById(id:string): Observable<Hero | undefined>{
+
+        return this.http.get<Hero>(`${this.baseUrl}/heroes/${id}`)
+            .pipe(
+                catchError( error => of( undefined))
+
+            )
+        //retorna esta petición GET http que devuelve un Hero y entre paréntesis la URL de ese heroe con el ID. Si retorna un ID que no existe, manejamos ese error con .pipe para atrapar el error: si sucede puede ser el ID no existe o que el servidor no existe: retornamos observable creándolo con of con el valor entre () que regresa undefined como la opción que le dimos al Observable:Hero o undefined
 
     }
+
+    //sugerencias en la búsqueda de heróes: una query con límite de 6 como parámetros
+    getSuggestions( query:string ): Observable<Hero[]> {
+
+        return this.http.get<Hero[]>(`${this.baseUrl }/heroes?q=${query}&_limit=6`);
+
+    }
+    
+
 }
