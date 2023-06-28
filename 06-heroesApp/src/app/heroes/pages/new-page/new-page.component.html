@@ -94,11 +94,19 @@
 
                 <!--Botones para eliminar y guardar del formulario aunque estén fuera. Por eso colocamos evento onSubmit. SI tuvieramos el botón dentro del formulario podría ser type=submit y nos valdría -->                
                 <div class="flex justify-content-between">
+                    
+                    <button
+                        mat-raised-button
+                        color="accent"
+                        (click)="goBack()">
+                        Volver
+                    </button>
+
                     <button mat-raised-button
                     color="warn">
                     <mat-icon>delete</mat-icon>
                         Borrar
-                    </button>
+                    </button>                    
 
                     <button 
                         mat-raised-button
@@ -116,7 +124,18 @@
     <!--Imagen del héroe que agregaremos que no lleva propiedades entre []-->
     <div class="col-12 sm:col-6">
         <mat-card>
-            <img src="..." alt="imagen del héroe" mat-card-image>
+            <img [src]="currentHero | heroImage" alt="imagen del héroe" mat-card-image>
         </mat-card>
     </div>
 </div>
+
+<!--
+
+Previsualizo el objeto por pantalla en formato Json con pipe Json
+<pre>{{ currentHero | json }}</pre>
+
+Ahora puedo cargar la img con su SRC al tener ya el objeto listo y le paso el PIPE creado heroImage
+
+-->
+
+
