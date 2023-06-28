@@ -30,7 +30,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HeroesRoutingModule,
-    MaterialModule, //importo el MaterialModule para usar los módulos
+    MaterialModule, //importo el MaterialModule para usar los módulos de Material UI
     ReactiveFormsModule // importo el modulo de formularios
   ]
 })

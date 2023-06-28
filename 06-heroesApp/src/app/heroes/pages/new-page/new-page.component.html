@@ -3,12 +3,14 @@
     <small>¿?</small>
 </h1>
 
-
 <div class="grid">
     <div class="col-12 sm:col-6">
         <mat-card>
             <mat-card-content>
-                <div class="grid">
+
+                <!--Form: lo enlazamos al formulario objeto en .ts llamado formGroup contenido en heroform y le añadimos el método creado onSubmit() a través del evento ngSubmit y también lo colocamos en el botón de guardar-->
+                <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="grid">
+
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>
                             Super héroe
@@ -16,9 +18,11 @@
                         <input
                             matInput
                             type="text"
-                            required                        
+                            required  
+                            formControlName="superhero"                   
                         >
                     </mat-form-field>
+                    <!--Required que viene de Material UI hace que el campo sea requerido pero no lo hace obligatorio.Indicamos formControlName y la propiedad del objeto heroForm que corresponda-->
 
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>
@@ -27,7 +31,8 @@
                         <input
                             matInput
                             type="text"
-                            required                        
+                            required  
+                            formControlName="alter_ego"                   
                         >
                     </mat-form-field>
 
@@ -38,7 +43,8 @@
                         <input
                             matInput
                             type="text"
-                            required                        
+                            required    
+                            formControlName="first_appearance"                   
                         >
                     </mat-form-field>
 
@@ -49,7 +55,8 @@
                         <input
                             matInput
                             type="text"
-                            required                        
+                            required    
+                            formControlName="characters"            
                         >
                     </mat-form-field>
 
@@ -57,7 +64,10 @@
                         <mat-label>
                             Creador
                         </mat-label>
-                        <mat-select required="">
+                        <mat-select 
+                            formControlName="publisher"
+                            required
+                            >
                             <mat-option
                                 *ngFor="let publisher of publishers"
                                 [value]="publisher.id">
@@ -66,18 +76,34 @@
                             <!--Creamos opciones de selección como un objeto que sea recorrido con ngFor con el id y con interpolación mostramos la descripcion-->
                         </mat-select>
                     </mat-form-field>
-                </div>   
-                
+
+                    <mat-form-field class="col-12">
+                        <mat-label>
+                            Imagen alternativa
+                        </mat-label>
+                        <input
+                            matInput
+                            type="text"
+                            required    
+                            formControlName="alt_img"            
+                        >
+                    </mat-form-field>
+
+                </form>
+                <!--End Form--> 
+
+                <!--Botones para eliminar y guardar del formulario aunque estén fuera. Por eso colocamos evento onSubmit. SI tuvieramos el botón dentro del formulario podría ser type=submit y nos valdría -->                
                 <div class="flex justify-content-between">
-                    <!--Botones para eliminar y guardar-->
                     <button mat-raised-button
                     color="warn">
                     <mat-icon>delete</mat-icon>
                         Borrar
                     </button>
 
-                    <button mat-raised-button
-                    color="primary">
+                    <button 
+                        mat-raised-button
+                        color="primary"
+                        (click)="onSubmit()">
                     <mat-icon>save</mat-icon>
                         Guardar
                     </button>
@@ -86,10 +112,11 @@
             </mat-card-content>
         </mat-card>
     </div>
+
     <!--Imagen del héroe que agregaremos que no lleva propiedades entre []-->
     <div class="col-12 sm:col-6">
         <mat-card>
-            <img src="" alt="" mat-card-image>
+            <img src="..." alt="imagen del héroe" mat-card-image>
         </mat-card>
     </div>
 </div>

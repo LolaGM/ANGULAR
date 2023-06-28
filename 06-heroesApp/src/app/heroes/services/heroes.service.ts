@@ -27,10 +27,8 @@ export class HeroesService { //cambiamos el nombre a HeroesService
         return this.http.get<Hero>(`${this.baseUrl}/heroes/${id}`)
             .pipe(
                 catchError( error => of( undefined))
-
             )
         //retorna esta petición GET http que devuelve un Hero y entre paréntesis la URL de ese heroe con el ID. Si retorna un ID que no existe, manejamos ese error con .pipe para atrapar el error: si sucede puede ser el ID no existe o que el servidor no existe: retornamos observable creándolo con of con el valor entre () que regresa undefined como la opción que le dimos al Observable:Hero o undefined
-
     }
 
     //sugerencias en la búsqueda de heróes: una query con límite de 6 como parámetros
