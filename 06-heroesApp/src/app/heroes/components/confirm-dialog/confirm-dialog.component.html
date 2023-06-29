@@ -1,0 +1,18 @@
+<!--Copiamos código HTML del Dialog de Material y modificamos.
+En el cuadro de diálogo  mostramos el objeto data y así mostramos el nombre del que va a eliminar el usuario-->
+
+<h1 mat-dialog-title>¿Estás seguro?</h1>
+<div mat-dialog-content>
+    <p>Este eliminación no es reversible: estás a punto de borrar a <b>{{data.superhero}}</b></p>
+</div>
+<div mat-dialog-actions>
+<button mat-button (click)="onNoClick()" >No borrar</button>
+<span class="spacer"></span>
+<button mat-raised-button (click)="onConfirm()" color="primary" cdkFocusInitial>OK</button> 
+</div>
+
+<!--Copiamos código TS del Dialog de Material para insertar acciones en los botones pegándolo en el componente confirm.
+Cambiamos el evento del OK creando método en el TS llamado onConfirm().
+Podemos cambiar el estilo de los botones con colores y espacios para ayudar al usuario-->
+
+

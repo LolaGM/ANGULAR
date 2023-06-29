@@ -1,6 +1,11 @@
+<!--Con la condicional Mostramos el título de agregar o editar si estás en un formulario u otro.
+Si tenemos el heroForm o el currentHero.
+Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
+
 <h1>
-    Editar / Agregar Héroe o Heroína
-    <small>¿?</small>
+    {{ currentHero.id ? 'Editar' : 'Agregar' }}
+    <!--Podríamos incluso hacer que aparezca el nombre del héroe si lo tenemos y estamos en editar. Interpolamos el nombre del heroe actual que hemos llamdo por id-->
+    <strong *ngIf="currentHero.id">{{currentHero.superhero}}</strong>
 </h1>
 
 <div class="grid">
@@ -102,8 +107,14 @@
                         Volver
                     </button>
 
-                    <button mat-raised-button
-                    color="warn">
+                    <!--Con NGIF Mostramos este botón de borrar si estás en un formulario de editar ya que para crear no sería necesario. 
+                    Si tenemos el heroForm o el currentHero.Si tenemos un id se muestra para borrarlo, si no tenemos no se muestra el botón. 
+                    Colocando un span debajo de button podríamos solucionar el problema del flex justify content-->
+                    <button 
+                        *ngIf="currentHero.id"
+                        (click)="onDeleteHero()"
+                        mat-raised-button
+                        color="warn">
                     <mat-icon>delete</mat-icon>
                         Borrar
                     </button>                    

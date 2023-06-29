@@ -14,6 +14,7 @@ import { CardComponent } from './components/card/card.component';
 import { HeroImagePipe } from './pipes/hero-image.pipe';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CardComponent,
 
     //PIPE
-    HeroImagePipe //los PIPES se declaran e importan
+    HeroImagePipe,
+     ConfirmDialogComponent //los PIPES se declaran e importan
   ],
   imports: [
     CommonModule,

@@ -8,14 +8,6 @@
   ],
   "heroes": [
     {
-      "id": "dc-batman",
-      "superhero": "Batman",
-      "publisher": "DC Comics",
-      "alter_ego": "Bruce Wayne",
-      "first_appearance": "Detective Comics #27",
-      "characters": "Bruce Wayne"
-    },
-    {
       "id": "dc-superman",
       "superhero": "Superman",
       "publisher": "DC Comics",
@@ -23,14 +15,6 @@
       "first_appearance": "Action Comics #1",
       "characters": "Kal-El",
       "alt_img": "https://2.bp.blogspot.com/-MSKgvLayRx4/U-0lap33HnI/AAAAAAAASyA/PaPI23IH-t4/s1600/john_romita_snr_superman_a_p.jpg"
-    },
-    {
-      "id": "dc-flash",
-      "superhero": "Flash",
-      "publisher": "DC Comics",
-      "alter_ego": "Jay Garrick",
-      "first_appearance": "Flash Comics #1",
-      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
     },
     {
       "id": "dc-green",
@@ -55,30 +39,6 @@
       "alter_ego": "Princess Diana",
       "first_appearance": "All Star Comics #8",
       "characters": "Princess Diana"
-    },
-    {
-      "id": "dc-martian",
-      "superhero": "Martian Manhunter",
-      "publisher": "DC Comics",
-      "alter_ego": "J\"onn J\"onzz",
-      "first_appearance": "Detective Comics #225",
-      "characters": "Martian Manhunter"
-    },
-    {
-      "id": "dc-robin",
-      "superhero": "Robin/Nightwing",
-      "publisher": "DC Comics",
-      "alter_ego": "Dick Grayson",
-      "first_appearance": "Detective Comics #38",
-      "characters": "Dick Grayson"
-    },
-    {
-      "id": "dc-blue",
-      "superhero": "Blue Beetle",
-      "publisher": "DC Comics",
-      "alter_ego": "Dan Garret",
-      "first_appearance": "Mystery Men Comics #1",
-      "characters": "Dan Garret, Ted Kord, Jaime Reyes"
     },
     {
       "id": "dc-black",
@@ -113,14 +73,6 @@
       "characters": "Tony Stark"
     },
     {
-      "id": "marvel-thor",
-      "superhero": "Thor",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Thor Odinson",
-      "first_appearance": "Journey into Myster #83",
-      "characters": "Thor Odinson"
-    },
-    {
       "id": "marvel-hulk",
       "superhero": "Hulk",
       "publisher": "Marvel Comics",
@@ -135,14 +87,6 @@
       "alter_ego": "James Howlett",
       "first_appearance": "The Incredible Hulk #180",
       "characters": "James Howlett"
-    },
-    {
-      "id": "marvel-daredevil",
-      "superhero": "Daredevil",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Matthew Michael Murdock",
-      "first_appearance": "Daredevil #1",
-      "characters": "Matthew Michael Murdock"
     },
     {
       "id": "marvel-hawkeye",
@@ -169,15 +113,6 @@
       "characters": "Norrin Radd"
     },
     {
-      "id": "AbSM-WN",
-      "superhero": "Fernando",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Strider",
-      "first_appearance": "Udemy 2015",
-      "characters": "Fernando",
-      "alt_img": "https://img.freepik.com/vector-gratis/superheroe-mano-fuerte_603843-458.jpg?w=740&t=st=1687947329~exp=1687947929~hmac=3a6118095b9f209f0a32270876b2f2adac8e12d3fd14646c77ac1c47ee7882e0"
-    },
-    {
       "id": "l8qEhgD",
       "superhero": "SuperLola",
       "publisher": "Marvel Comics",
@@ -185,6 +120,15 @@
       "first_appearance": "FemCoders 2022",
       "characters": "Lola de Elche",
       "alt_img": "https://img.freepik.com/vector-premium/ilustracion-metamorfosis-mariposa-estilo-comic_168791-24.jpg?w=740"
+    },
+    {
+      "id": "aq8Wscg",
+      "superhero": "PostmAna",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Ana",
+      "first_appearance": "FemCoders oct 2022",
+      "characters": "Michi,Wey",
+      "alt_img": "https://ih1.redbubble.net/image.4758981734.3084/ur,mounted_print_canvas_portrait_medium_front,square,600x600.1u1.jpg"
     }
   ]
 }
