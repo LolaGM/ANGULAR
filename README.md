@@ -85,3 +85,26 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 <h3> Further help </h3>
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+<h2>7. Visual Studio Code Extensions Used </h2>
+<ul>
+   <li>1. Angular Snippets</li>
+   <li>2. Angular Language Service</li>
+   <li>3. Angular Schematics</li>
+   <li>4. Angular Snippets (Version 16)</li>
+   <li>5. angular2-inline</li>
+   <li>6. Auto Close Tag</li>
+   <li>7. Material Icon Theme</li>
+   <li>8. Paste JSON as Code</li>
+   <li>9. TypeScript Importer</li>
+   <li>10. Better Comments</li> 
+</ul>
+
+
+
+
+
+
+
+
+
