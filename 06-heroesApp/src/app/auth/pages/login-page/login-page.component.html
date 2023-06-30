@@ -1,25 +1,29 @@
-
 <div class="flex flex-column">
+
     <span class="text-lg mb-4">Login</span>
 
     <!--ANGULAR Material-->
     <mat-form-field>
-        <mat-label>Usuario</mat-label>
-        <input type="text" matInput placeholder="Nombre de usuario">
+        <mat-label>User</mat-label>
+        <input type="text" matInput placeholder="Username">
     </mat-form-field>
 
     <mat-form-field>
-        <mat-label>Contraseña</mat-label>
-        <input type="password" matInput placeholder="Contraseña">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput placeholder="Password">
     </mat-form-field>
 
-    <button mat-button mat-flat-button color="primary">
+    <button 
+        mat-button mat-flat-button 
+        color="primary"
+        (click)="onLogin()">
         <mat-icon>save</mat-icon>
-        Ingresar
+        Enter
     </button>
     
     <div class="flex justify-content-end mt-5">
-        <a routerLink="/auth/new-account">¿No tienes cuenta?</a>
+        <a routerLink="/auth/new-account">No account?</a>
     </div>
 
 </div>
+<!--Creamos evento onLogin cuando usuario haga click en ingresar-->

@@ -3,7 +3,7 @@ Si tenemos el heroForm o el currentHero.
 Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
 <h1>
-    {{ currentHero.id ? 'Editar' : 'Agregar' }}
+    {{ currentHero.id ? 'Edit' : 'Add' }}
     <!--Podríamos incluso hacer que aparezca el nombre del héroe si lo tenemos y estamos en editar. Interpolamos el nombre del heroe actual que hemos llamdo por id-->
     <strong *ngIf="currentHero.id">{{currentHero.superhero}}</strong>
 </h1>
@@ -18,7 +18,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>
-                            Super héroe
+                            Super Hero or Heroine
                         </mat-label>
                         <input
                             matInput
@@ -31,7 +31,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12 sm:col-6">
                         <mat-label>
-                            Alter ego
+                            Alter Ego
                         </mat-label>
                         <input
                             matInput
@@ -43,7 +43,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12">
                         <mat-label>
-                            Primera aparición
+                            First appearance
                         </mat-label>
                         <input
                             matInput
@@ -55,7 +55,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12">
                         <mat-label>
-                            Personajes
+                            Characters
                         </mat-label>
                         <input
                             matInput
@@ -67,7 +67,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12">
                         <mat-label>
-                            Creador
+                            Publisher
                         </mat-label>
                         <mat-select 
                             formControlName="publisher"
@@ -84,7 +84,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
 
                     <mat-form-field class="col-12">
                         <mat-label>
-                            Imagen alternativa
+                           Alternative image/pic
                         </mat-label>
                         <input
                             matInput
@@ -104,7 +104,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
                         mat-raised-button
                         color="accent"
                         (click)="goBack()">
-                        Volver
+                        Go back
                     </button>
 
                     <!--Con NGIF Mostramos este botón de borrar si estás en un formulario de editar ya que para crear no sería necesario. 
@@ -116,7 +116,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
                         mat-raised-button
                         color="warn">
                     <mat-icon>delete</mat-icon>
-                        Borrar
+                        Delete
                     </button>                    
 
                     <button 
@@ -124,7 +124,7 @@ Si tenemos un id se muestra EDITAR, si no tenemos se muestra AGREGAR. -->
                         color="primary"
                         (click)="onSubmit()">
                     <mat-icon>save</mat-icon>
-                        Guardar
+                        Save
                     </button>
                 </div>
                 

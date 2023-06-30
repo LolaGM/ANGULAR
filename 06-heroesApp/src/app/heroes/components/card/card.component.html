@@ -16,8 +16,12 @@
     <mat-card-content class="mt-2">
         <h4>{{ hero.publisher}}</h4>
         <p>
-            <strong>Primera aparición</strong>{{ hero.first_appearance }}
+            <strong>First appearance:</strong>
             <br>
+            {{ hero.first_appearance }}
+        </p>
+        <p>
+            <strong>Characters:</strong>
             <mat-chip-listbox>
                 <!--Para descomponer los characters en varios usamos otro ngFor , el método split con coma y un PIPE slice que los corte-->
                 <mat-chip *ngFor="let name of hero.characters.split(',') | slice:0:3">
@@ -35,7 +39,7 @@
             color="primary"
             [routerLink]="['/heroes/edit', hero.id]">
             <mat-icon>edit</mat-icon>
-            Editar
+            Edit
         </button>
 
         <span class="spacer"></span>
@@ -44,7 +48,7 @@
         mat raised
         [routerLink]="['/heroes', hero.id]">
         <mat-icon>more_horiz</mat-icon>
-        Más
+        More
     </button>
 
     </mat-card-actions>

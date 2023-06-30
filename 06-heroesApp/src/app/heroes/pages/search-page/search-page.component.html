@@ -2,10 +2,10 @@
 
 <div class="flex flex-column">
 
-    <h3>Buscador</h3>
+    <h3>Search</h3>
 
     <mat-form-field>
-        <mat-label>Buscador de héroes</mat-label>
+        <mat-label>Search your hero</mat-label>
         <!--Cada vez que el usuario escriba, mandamos a llamar este método search-->
         <input
             type="text"
@@ -30,7 +30,7 @@
                 <mat-option
                     *ngIf="heroes.length === 0 && searchInput.value && searchInput.value.length > 0"    
                     value="">
-                    No hay resultados con la búsqueda {{ searchInput.value }}
+                    No results found with the search {{ searchInput.value }}
                 </mat-option>
         </mat-autocomplete>     
         

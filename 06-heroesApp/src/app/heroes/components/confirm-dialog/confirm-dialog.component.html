@@ -1,14 +1,14 @@
 <!--Copiamos código HTML del Dialog de Material y modificamos.
 En el cuadro de diálogo  mostramos el objeto data y así mostramos el nombre del que va a eliminar el usuario-->
 
-<h1 mat-dialog-title>¿Estás seguro?</h1>
+<h1 mat-dialog-title>Are you sure?</h1>
 <div mat-dialog-content>
-    <p>Este eliminación no es reversible: estás a punto de borrar a <b>{{data.superhero}}</b></p>
+    <p>This deletion can not be undone: you are about to delete <b>{{data.superhero}}</b></p>
 </div>
 <div mat-dialog-actions>
-<button mat-button (click)="onNoClick()" >No borrar</button>
+<button mat-button (click)="onNoClick()" >No </button>
 <span class="spacer"></span>
-<button mat-raised-button (click)="onConfirm()" color="primary" cdkFocusInitial>OK</button> 
+<button mat-raised-button (click)="onConfirm()" color="primary" cdkFocusInitial>Delete</button> 
 </div>
 
 <!--Copiamos código TS del Dialog de Material para insertar acciones en los botones pegándolo en el componente confirm.

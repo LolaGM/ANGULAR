@@ -2,7 +2,7 @@
 
     <mat-sidenav #sidenav mode="push" [ngStyle]="{ width: '250px' }">
         <mat-toolbar color="primary">
-            <span>Menú</span>
+            <span>Menu</span>
             <span class="spacer"></span>
             <button mat-icon-button (click)="sidenav.toggle()">
                 <mat-icon>menu</mat-icon>
@@ -30,7 +30,13 @@ Para cerrar el menú otra vez click-->
         </button>
 
         <span class="spacer"></span>
-        <button mat-button>
+
+        <!--Coloco el nombre de la persona logueada cuando lo esté. Usaremos un getters para acceder a ese nombre. En este caso ponemos el mail del posible usuario? nulo -->
+        <span>{{ user?.email }}</span>
+
+        <button 
+            mat-button
+            (click)="onLogout()">
             Logout
         </button>
 
@@ -50,6 +56,8 @@ EN modo PUSH con ngstyle de 250px
 Al botón le paso evento click pasaándole la referencia sidenav a la que aplico método toggle()
 Ahora un icono de menu de hamburguesa.
 Como no aparece nada en pantalla, usamos el mat-toolbar al que le ponemos color por defecto-->
+
+<!--Ahora vamos con el logout le pasamos evento click que crearemos e inyectamos en el componente layout-->
 
 
 

@@ -2,19 +2,42 @@
   "users": [
     {
       "id": 1,
-      "usuario": "John Doe",
+      "user": "John Doe",
       "email": "john.due@gmail.com"
     }
   ],
   "heroes": [
+    {
+      "id": "dc-batman",
+      "superhero": "Batman",
+      "publisher": "DC Comics",
+      "alter_ego": "Bruce Wayne",
+      "first_appearance": "Detective Comics #27",
+      "characters": "Bruce Wayne"
+    },
     {
       "id": "dc-superman",
       "superhero": "Superman",
       "publisher": "DC Comics",
       "alter_ego": "Kal-El",
       "first_appearance": "Action Comics #1",
-      "characters": "Kal-El",
-      "alt_img": "https://2.bp.blogspot.com/-MSKgvLayRx4/U-0lap33HnI/AAAAAAAASyA/PaPI23IH-t4/s1600/john_romita_snr_superman_a_p.jpg"
+      "characters": "Kal-El"
+    },
+    {
+      "id": "dc-flash",
+      "superhero": "Flash",
+      "publisher": "DC Comics",
+      "alter_ego": "Jay Garrick",
+      "first_appearance": "Flash Comics #1",
+      "characters": "Jay Garrick, Barry Allen, Wally West, Bart Allen"
+    },
+    {
+      "id": "dc-green",
+      "superhero": "Green Lantern",
+      "publisher": "DC Comics",
+      "alter_ego": "Alan Scott",
+      "first_appearance": "All-American Comics #16",
+      "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz"
     },
     {
       "id": "dc-arrow",
@@ -22,8 +45,7 @@
       "publisher": "DC Comics",
       "alter_ego": "Oliver Queen",
       "first_appearance": "More Fun Comics #73",
-      "characters": "Oliver Queen",
-      "alt_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1JTRC-7F1fqjtPDNE1k98Wi6uqOku7yIRpzmR2YG3atTjjtpDjHgDH9LktJvuIx1B4R8&usqp=CAU"
+      "characters": "Oliver Queen"
     },
     {
       "id": "dc-wonder",
@@ -32,6 +54,30 @@
       "alter_ego": "Princess Diana",
       "first_appearance": "All Star Comics #8",
       "characters": "Princess Diana"
+    },
+    {
+      "id": "dc-martian",
+      "superhero": "Martian Manhunter",
+      "publisher": "DC Comics",
+      "alter_ego": "J\"onn J\"onzz",
+      "first_appearance": "Detective Comics #225",
+      "characters": "Martian Manhunter"
+    },
+    {
+      "id": "dc-robin",
+      "superhero": "Robin/Nightwing",
+      "publisher": "DC Comics",
+      "alter_ego": "Dick Grayson",
+      "first_appearance": "Detective Comics #38",
+      "characters": "Dick Grayson"
+    },
+    {
+      "id": "dc-blue",
+      "superhero": "Blue Beetle",
+      "publisher": "DC Comics",
+      "alter_ego": "Dan Garret",
+      "first_appearance": "Mystery Men Comics #1",
+      "characters": "Dan Garret, Ted Kord, Jaime Reyes"
     },
     {
       "id": "dc-black",
@@ -66,6 +112,14 @@
       "characters": "Tony Stark"
     },
     {
+      "id": "marvel-thor",
+      "superhero": "Thor",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Thor Odinson",
+      "first_appearance": "Journey into Myster #83",
+      "characters": "Thor Odinson"
+    },
+    {
       "id": "marvel-hulk",
       "superhero": "Hulk",
       "publisher": "Marvel Comics",
@@ -82,6 +136,22 @@
       "characters": "James Howlett"
     },
     {
+      "id": "marvel-daredevil",
+      "superhero": "Daredevil",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Matthew Michael Murdock",
+      "first_appearance": "Daredevil #1",
+      "characters": "Matthew Michael Murdock"
+    },
+    {
+      "id": "marvel-hawkeye",
+      "superhero": "Hawkeye",
+      "publisher": "Marvel Comics",
+      "alter_ego": "Clinton Francis Barton",
+      "first_appearance": "Tales of Suspense #57",
+      "characters": "Clinton Francis Barton"
+    },
+    {
       "id": "marvel-cyclops",
       "superhero": "Cyclops",
       "publisher": "Marvel Comics",
@@ -96,24 +166,6 @@
       "alter_ego": "Norrin Radd",
       "first_appearance": "The Fantastic Four #48",
       "characters": "Norrin Radd"
-    },
-    {
-      "id": "l8qEhgD",
-      "superhero": "SuperLola",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Lola",
-      "first_appearance": "FemCoders 2022",
-      "characters": "Lola de Elche",
-      "alt_img": "https://img.freepik.com/vector-premium/ilustracion-metamorfosis-mariposa-estilo-comic_168791-24.jpg?w=740"
-    },
-    {
-      "id": "aq8Wscg",
-      "superhero": "PostmAna",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Ana",
-      "first_appearance": "FemCoders oct 2022",
-      "characters": "Michi,Wey",
-      "alt_img": "https://ih1.redbubble.net/image.4758981734.3084/ur,mounted_print_canvas_portrait_medium_front,square,600x600.1u1.jpg"
     }
   ]
 }

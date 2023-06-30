@@ -36,13 +36,16 @@
         <mat-card-content>
             <mat-list>
                 <mat-list-item>
-                    {{ hero.first_appearance}}
+                    First appearance: <strong>{{ hero.first_appearance}}</strong>
                 </mat-list-item>
                 <mat-list-item>
-                    {{ hero.characters}}
+                    Alter Ego: <strong>{{ hero.alter_ego}}</strong>
                 </mat-list-item>
                 <mat-list-item>
-                    {{ hero.publisher}}
+                    Characters : <strong>{{ hero.characters}}</strong> 
+                </mat-list-item>
+                <mat-list-item>
+                    Publisher: <strong><i>{{ hero.publisher}}</i></strong>
                 </mat-list-item>
             </mat-list>
             
@@ -50,7 +53,7 @@
                 mat-raised-button
                 color="primary"
                 (click)="goBack()">
-                Volver
+                Go back
             </button>
 
         </mat-card-content>
