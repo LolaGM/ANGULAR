@@ -22,4 +22,3 @@ CRUD and Authentication implementation are available
 9. TypeScript Importer
 10. Better Comments
 11. Monokai Night Theme
-12. Material Icon Theme
