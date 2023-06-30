@@ -39,19 +39,19 @@ export class HeroesService { //cambiamos el nombre a HeroesService
 
     //CRUD heroes: create con método HTTP request de tipo POST que apunta a donde tiene que crear el nuevo recurso de heroe y como segundo argumento la data que mando
     addHero(hero: Hero): Observable<Hero>{
-        return this.http.post<Hero>(`${this.baseUrl }/heroes`, hero);
+        return this.http.post<Hero>(`${this.baseUrl }/heroes/${ hero.id }`, hero);
     }
 
     //CRUD heroes: update con método HTTP request PATCH (actualización parcial de alguna propiedad del objeto) y decirle el id del objeto pero antes hacermos una validación de si existe
     updateHero(hero: Hero): Observable<Hero>{
 
-        if (!hero.id) throw Error('El id de Héroe es necesario');
+        if ( !hero.id ) throw Error('El id de Héroe es necesario');
         return this.http.patch<Hero>(`${this.baseUrl }/heroes/${ hero.id }`, hero);
     }
 
     //CRUD heroes: delete con método HTTP request DELETE y decirle el id del objeto.
     //Como se haya borrado ya, nos deberá indicar esto si es verdadero o falso
-    deleteHeroById(id: string): Observable<boolean>{
+    deleteHeroById( id: string ): Observable<boolean>{
 
         return this.http.delete(`${this.baseUrl }/heroes/${ id }`)
             .pipe(

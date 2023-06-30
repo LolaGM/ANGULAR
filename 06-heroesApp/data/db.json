@@ -17,20 +17,13 @@
       "alt_img": "https://2.bp.blogspot.com/-MSKgvLayRx4/U-0lap33HnI/AAAAAAAASyA/PaPI23IH-t4/s1600/john_romita_snr_superman_a_p.jpg"
     },
     {
-      "id": "dc-green",
-      "superhero": "Green Lantern",
-      "publisher": "DC Comics",
-      "alter_ego": "Alan Scott",
-      "first_appearance": "All-American Comics #16",
-      "characters": "Alan Scott, Hal Jordan, Guy Gardner, John Stewart, Kyle Raynor, Jade, Sinestro, Simon Baz"
-    },
-    {
       "id": "dc-arrow",
       "superhero": "Green Arrow",
       "publisher": "DC Comics",
       "alter_ego": "Oliver Queen",
       "first_appearance": "More Fun Comics #73",
-      "characters": "Oliver Queen"
+      "characters": "Oliver Queeny",
+      "alt_img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1JTRC-7F1fqjtPDNE1k98Wi6uqOku7yIRpzmR2YG3atTjjtpDjHgDH9LktJvuIx1B4R8&usqp=CAU"
     },
     {
       "id": "dc-wonder",
@@ -87,14 +80,6 @@
       "alter_ego": "James Howlett",
       "first_appearance": "The Incredible Hulk #180",
       "characters": "James Howlett"
-    },
-    {
-      "id": "marvel-hawkeye",
-      "superhero": "Hawkeye",
-      "publisher": "Marvel Comics",
-      "alter_ego": "Clinton Francis Barton",
-      "first_appearance": "Tales of Suspense #57",
-      "characters": "Clinton Francis Barton"
     },
     {
       "id": "marvel-cyclops",

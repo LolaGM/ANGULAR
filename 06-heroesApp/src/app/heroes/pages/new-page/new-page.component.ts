@@ -62,7 +62,7 @@ export class NewPageComponent implements OnInit {
         .pipe(
           switchMap(({id}) =>this.heroesService.getHeroById(id)),
           ).subscribe( hero => {
-              if (!hero) {
+              if (!hero) { //si no existe el heroe, volvemos a home
                 return this.router.navigateByUrl('/');
               }
               this.heroForm.reset( hero );
@@ -89,13 +89,13 @@ export class NewPageComponent implements OnInit {
 
           });//aquí el hero ya está actualizado
           
-          return; //está fuera del subscribe: si se hace estas líneas, no se sigue ejecutando nada: si tenemos el id hace lo de dentro, si no, actualiza fuera del id 
+        return; //está fuera del subscribe: si se hace estas líneas, no se sigue ejecutando nada: si tenemos el id hace lo de dentro, si no, actualiza fuera del id 
       }
 
       //si no lo tiene, lo creamos con método add
       this.heroesService.addHero( this.currentHero) //es el objeto que mando y al que me tengo que suscribir y tener la petición HTTP
         .subscribe( hero => {
-          this.router.navigate(['heroes/edit',hero.id]);
+          this.router.navigate(['/heroes/edit',hero.id]);
           //navegacion  al arreglo en este caso con la ruta en particular heroes/edit/ y luego el hero.id que es el que va a devolver el servicio (porque el hero que devuelve suscribe viene con el id del backend)
           this.showSnackbar(`${hero.superhero} creado`); // mensaje de creado correctamente
         
@@ -148,9 +148,7 @@ export class NewPageComponent implements OnInit {
 }
 
 
-function subscribe(arg0: (result: any) => void) {
-  throw new Error('Function not implemented.');
-}
+
 /*
 Mostrar objeto por consola del onSubmit
 
