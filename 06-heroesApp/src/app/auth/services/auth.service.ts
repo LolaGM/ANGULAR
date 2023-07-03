@@ -5,7 +5,7 @@ import { environments } from 'src/environments/environments';
 
 import { User } from '../interfaces/user.interface';
 
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +31,25 @@ export class AuthService {
         tap( user => this.user = user),
         tap( user => localStorage.setItem('token', 'asdfoijhe.A455.fsdf12'))
       );
+  }
+
+  //para comprobar y que la sesión de usuario se mantenga.Regresa un observable de valor booleano que devuelve true si la autenticación es correcta y false si no
+  checkAuthentication(): Observable<boolean> {
+
+    //cómo sabemos que está autenticado? Si el local storage no contiene token, retorna  observable
+    if (!localStorage.getItem('token')) return of(false);
+
+    const token = localStorage.getItem('token'); //supongamos que tengo el token de las peticiones http
+
+    //retorno del endpoint:ahora sólo tenemos un usuario de la que estamos trayendo la info
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
+      .pipe(
+          tap( user =>this.user = user), //este user será igual al user que estoy recibiendo perop no es está cambiando el valor
+          map( user => !!user),//retornar un true /false: tengo un posible usuario: si el usuario existe, necsito regresar un valor boolean y podemoshacer la doble negación. Uso map porque quiero transformarlo y la doble negación para asegurarme que sea un valor boolean y no otro tipo
+          catchError( err => of(false))//si tenemos un error lo atrapo
+
+      )
+
   }
 
   logout(){
