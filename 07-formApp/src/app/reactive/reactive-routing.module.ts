@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { BasicPageComponent } from './pages/basic-page/basic-page.component';
 import { DynamicPageComponent } from './pages/dynamic-page/dynamic-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { RegisterPageComponent } from '../auth/pages/register-page/register-page.component';
 import { SwitchesPageComponent } from './pages/switches-page/switches-page.component';
 
 const routes: Routes = [
