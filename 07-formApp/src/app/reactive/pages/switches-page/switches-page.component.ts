@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from 'src/app/shared/service/validator.service';
 
 @Component({
   templateUrl: './switches-page.component.html',
@@ -23,7 +24,10 @@ export class SwitchesPageComponent {
   }
 
   //inyectamos FormBUilder
-  constructor(private fb:FormBuilder){  }
+  constructor(
+      private fb: FormBuilder,
+      private validatorsService: ValidatorsService
+      ){}
 
   //al ser un método usado en los 3 formularios se debería usar sólo desde un sólo lugar y no copiarlo y pegarlo
   isValidField(field: string):boolean | null{ //regreso una condición para comprobar el campo del formulario usando errors o hasError y si ha sido tocado. Paso esto al HTML

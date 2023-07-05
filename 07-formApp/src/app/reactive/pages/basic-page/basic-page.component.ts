@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms'; //validators nos ayuda con la validación a través de los métodos disponibles que trae
+import { ValidatorsService } from '../../../shared/service/validator.service';
 
 const rtx5090 = {
     name:'RTX 5090',
@@ -25,7 +26,10 @@ export class BasicPageComponent implements OnInit {
 
     })
 
-    constructor(private fb: FormBuilder){}
+    constructor(
+        private fb: FormBuilder,
+        private validatorsService: ValidatorsService
+        ){}
   
     //inicializamos el formulario y creamos constante que sería lo que llega del backend y sería el producto inicial
     ngOnInit(): void {

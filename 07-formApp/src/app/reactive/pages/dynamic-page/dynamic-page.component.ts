@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from 'src/app/shared/service/validator.service';
 
 @Component({
   templateUrl: './dynamic-page.component.html',
@@ -25,7 +26,10 @@ export class DynamicPageComponent {
   //objeto nuevo favorito: formcontrol con valor inicial vacío y con validación requerida. Lo indicamos en el html
   public newFavorite: FormControl = new FormControl('', Validators.required);
 
-  constructor(private fb: FormBuilder){}
+  constructor(
+    private fb: FormBuilder,
+    private validatorsService: ValidatorsService
+    ){}
 
   //getter para listar juegos
   get favoriteGames() {
