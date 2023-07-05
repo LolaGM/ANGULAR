@@ -10,36 +10,36 @@
 
             <!-- Nombre -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Nombre</label>
+                <label class="col-sm-3 col-form-label">Full Name</label>
                 <div class="col-sm-9">
                     <input 
                         formControlName="name"
                         type="text"
                         class="form-control"
-                        placeholder="Nombre del usuario">
+                        placeholder="Your full name">
                 <!--Hacemos la validación del campo mostrando el error si no es correcto pasándole el método y en cada caso el campo que validamos-->    
                     <span 
                         *ngIf="isValidField('name')"
                         class="form-text text-danger">
-                        Debe de ser en formato de nombre y apellido
+                        Please write name and surname
                     </span>
                 </div>
             </div>
 
             <!-- Email -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Email</label>
+                <label class="col-sm-3 col-form-label">Email address</label>
                 <div class="col-sm-9">
                     <input 
                         formControlName="email"
                         type="email"
                         class="form-control"
-                        placeholder="Email del usuario">
+                        placeholder="Your email address">
                     <!--Hacemos la validación del campo mostrando el error si no es correcto pasándole el método y en cada caso el campo que validamos--> 
                     <span 
                         *ngIf="isValidField('email')"
                         class="form-text text-danger">
-                        mensaje de error del email
+                        Email error message
                     </span>
                 </div>
             </div>
@@ -52,12 +52,12 @@
                         formControlName="username"  
                         type="text"
                         class="form-control"
-                        placeholder="Nombre código del usuario">
+                        placeholder="Your username">
                     <!--Hacemos la validación del campo mostrando el error si no es correcto pasándole el método y en cada caso el campo que validamos--> 
                     <span 
                         *ngIf="isValidField('username')"
                         class="form-text text-danger">
-                        El username no puede ser Strider
+                        Username can't be <i> Strider</i>
                     </span>
                 </div>
             </div>
@@ -70,30 +70,30 @@
                         formControlName="password"
                         type="password"
                         class="form-control"
-                        placeholder="Password de su cuenta">
+                        placeholder="Your password">
                     <!--Hacemos la validación del campo mostrando el error si no es correcto pasándole el método y en cada caso el campo que validamos--> 
                     <span 
                         *ngIf="isValidField('password')"
                         class="form-text text-danger">
-                        La contraseña debe de ser mayor de 6 caracteres.
+                        Password must contain at least 6 characters
                     </span>
                 </div>
             </div>
 
             <!-- Password2 -->
             <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Confirmar</label>
+                <label class="col-sm-3 col-form-label">Confirm password</label>
                 <div class="col-sm-9">
                     <input 
                         formControlName="password2"
                         type="password"
                         class="form-control"
-                        placeholder="Confirmar la contraseña">
+                        placeholder="Confirm your password">
                     <!--Hacemos la validación del campo mostrando el error si no es correcto pasándole el método y en cada caso el campo que validamos--> 
                     <span 
                         *ngIf="isValidField('password2')"
                         class="form-text text-danger">
-                        Las contraseñas deben de ser iguales
+                        Both passwords must be equal
                     </span>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                 <div class="col">
                     <button class="btn btn-primary float-end"
                             type="submit">
-                        Crear
+                        Create
                     </button>
                 </div>
             </div>
@@ -113,7 +113,10 @@
     </div>
 </div>
 
-<h2>Form Valid: {{ myForm.valid}} </h2>
+<hr>
+
+<!--Para visualizar mejor lo que va ocurriendo con el formulario a medida que vamos rellenando los campos,usamos etiquetas HTML que nos muestre el estatus del formulario, justo debajo de donde mostramos si el formulario es válido o no:-->
+<h2>Form Valid: {{ myForm.valid}} </h2> <!--El status del form son.VALID, INVALID y PENDING (cuando hcemos validación asíncrona)-->
 <h2>Form Status: {{ myForm.status}} </h2>
 <h2>Form Pending: {{ myForm.pending}} </h2>
 <h2>Form errors</h2>
@@ -125,7 +128,6 @@
 <h5>Email</h5>
 <pre>{{ myForm.controls['email'].errors | json }}</pre> <!--Validar  los errores del email-->
 
-
 <h5>Username</h5>
 <pre>{{ myForm.controls['username'].errors | json }}</pre> <!--Quiero ver todos los errores que el username va a tener-->
 
@@ -133,4 +135,4 @@
 <pre>{{ myForm.value.password | json }}</pre>
 
 <h5>Confirmar</h5>
-<pre>{{ myForm.value.password2 | json }}</pre>
+<pre>{{ myForm.controls['password2'].errors | json }}</pre>

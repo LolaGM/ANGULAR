@@ -4,6 +4,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 //import * as customValidators from 'src/app/shared/validators/validators.functions';
 
 import { ValidatorsService } from '../../../shared/service/validator.service';
+import { EmailValidatorService } from 'src/app/shared/validators/email-validator.service';
 
 @Component({
   templateUrl: './register-page.component.html',
@@ -11,18 +12,26 @@ import { ValidatorsService } from '../../../shared/service/validator.service';
 })
 export class RegisterPageComponent {
 
-  public myForm: FormGroup = this.fb.group({
+  public myForm: FormGroup = this.fb.group({ //field: ['vacio', validación síncrona, validación asíncrona]  en el tercer parámetro del constructor de un FormControl es donde se colocan las validaciones asíncronas.
     
     name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]], //validamos con la regex del service para nombre
-    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern) ]], //la validación de Angular no es suficiente usando Validators.email así que validaremos usando algo más: le pasamos el patrón de validación y como parámetro el regex
+    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)] , [this.emailValidatorService]],
     username: ['', [Validators.required, this.validatorsService.cantBeStrider]], //añado la función creada de validación sin invocarla () para que Angular la ejecute y le indico que viene
     password: ['', [Validators.required, Validators.minLength(6)]], //largo mínimo de 6 caracteres: podríamos aplicar una REGEX 
     password2: ['', [Validators.required]], //confirmacíón de que el password lo escribió bien
-  });
+  },
+    //colocamos las validaciones de contraseña abriendo un nuevo objeto validador que pasa como argumento implícito todo el formulario. Llamamos al service y el método creado con dos parámetros
+    {
+      validators: [
+        this.validatorsService.isFieldOneEqualFieldTwo('password', 'password2')
+      ]
+    }
+  );
 
   constructor(
       private fb:FormBuilder,
-      private validatorsService: ValidatorsService
+      private validatorsService: ValidatorsService,
+      private emailValidatorService: EmailValidatorService
       ){}
 
   //validacion del campo
@@ -37,11 +46,10 @@ export class RegisterPageComponent {
     this.myForm.markAllAsTouched();
 
   }
-
   
   //no olvidar importar el modulo reactiveForms en auth module
 
-
-
-
 }
+
+/* email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)] , [new EmailValidatorService()]], */ 
+//validamos mail con service instanciandolo en la asíncrona e importamos este servicio y la usamos
