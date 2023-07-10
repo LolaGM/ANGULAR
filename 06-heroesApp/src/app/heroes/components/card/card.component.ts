@@ -4,8 +4,7 @@ import { Hero } from '../../interfaces/hero.interface';
 @Component({
   selector: 'heroes-hero-card', //cambiamos el nombre del selector al nombre del módulo
   templateUrl: './card.component.html',
-  styles: [
-  ]
+  styleUrls: [ './card.component.css' ],
 })
 export class CardComponent implements OnInit {   //implementamos una validación al inicio
 
