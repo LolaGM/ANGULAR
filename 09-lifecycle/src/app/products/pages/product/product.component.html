@@ -1,0 +1,19 @@
+<h1>Product component</h1>
+<p>product works!</p>
+
+<!--Angular ya soporta el autocierre de etiquetas y no necesita usar apertura y cierre-->
+<!--Usaremos NGIF y el price lo vamos a cambiar basado en una propiedad-->
+<products-price 
+    *ngIf="isProductVisible"
+    [price]="currentPrice"
+    />
+
+<!--Hacemos un botón para ver el cambio de una propiedad de falso a verdadero y en este caso mostrar o no el precio -->
+<button (click)="isProductVisible = !isProductVisible">
+    Toggle
+</button>
+
+<!--Hacemos un botón para aumentar el precio -->
+<button (click)="increasePrice()">
+    +1 Price
+</button>
