@@ -1,0 +1,16 @@
+
+<ul class="list-group">
+    <li 
+        *ngFor="let item of menuItems"
+        [routerLink]="[ item.route ]"
+        routerLinkActive="active"
+        class="list-group-item">
+        {{ item.name}}
+        <!--
+            -Con NgFOr recorremos el listado de menúItems creado
+            -Con Routerlink accedemos a la propiedad route de cada item del listado MenuItems
+            -Con RouterLinKActive marcamos como activo 
+            -Muestra el name que le indiicamos en el ts
+        -->
+    </li>
+</ul>
