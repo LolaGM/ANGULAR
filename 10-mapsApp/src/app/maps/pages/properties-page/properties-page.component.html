@@ -1,1 +1,30 @@
-<p>properties-page works!</p>
+
+<div class="row mt-3">
+    <div class="col-2"></div>
+    <div class="col">
+        <h3>Listado de propiedades</h3>
+        <hr>
+    </div>
+</div>
+
+<div class="row mt-2">
+    <div class="col-2">
+    </div>
+    <div class="col">
+        <div class="row">
+            <!--Houses que cargamos mediante ngFor desde ts. Luego llamamos el title propiedad de cada elemento del ngFor-->
+            <div *ngFor="let house of houses" class="col-4 mb-2">
+                <div class="card">
+                    <!--   <img src="..." alt="" class="card-img-top" />  -->                    
+                    <img src="..." alt="" class="card-img-top" />
+                    <!--LLamamos al componente mini map y como atributos le pasamos el Input accediendo al elemento y la propiedad de coordenadas-->
+                        <map-mini-map  [lngLat]="house.lngLat"/>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ house.title }}</h5>
+                        <p class="card-text">{{ house.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

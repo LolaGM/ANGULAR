@@ -1,1 +1,22 @@
-<p>markers-page works!</p>
+<div id="map" #map></div>
+
+<!--Listado de marcadores guardados para luego poder usarlos. Uso ngFor y el índice de posición que le sumamos 1.
+Con ngStyle definiremos el color de cada marcador asociándolos.
+Vamos a poder eliminar el marcador haciendo doble click y mandando la posición i del arreglo.
+También podemos movernos a ese marcador haciendo zoom con 1 click: la posición la tenemos en el colormarker.marker que es el elemento del array del ngFor-->
+<ul class="list-group">
+    <li 
+        *ngFor="let colorMarker of markers; let i=index"
+        [ngStyle]="{ backgroundColor: colorMarker.color }"
+        (dblclick) = "deleteMarker(i)"
+        (click)="flyTo(colorMarker.marker)"
+        class="list-group-item">
+        Marcador {{ i + 1}}
+    </li>
+</ul>
+
+<button 
+    (click)="createMarker()"
+    class="btn btn-primary">
+    + Agregar marcador
+</button>
