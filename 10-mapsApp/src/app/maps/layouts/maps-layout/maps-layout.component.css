@@ -1,5 +1,7 @@
 /*Podemos usar los componentes como selectores en CSS*/
-maps-side-menu{
+
+/* maps-side-menu ha cambiado a side-menu */
+side-menu{
     position: fixed;
     top: 20px;
     left:20px;

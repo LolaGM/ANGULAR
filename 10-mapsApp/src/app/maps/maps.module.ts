@@ -16,22 +16,27 @@ import { FullScreenPageComponent } from './pages/full-screen-page/full-screen-pa
 import { MarkersPageComponent } from './pages/markers-page/markers-page.component';
 import { PropertiesPageComponent } from './pages/properties-page/properties-page.component';
 import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.component';
-import { SidemenuComponent } from './components/side-menu/side-menu.component';
+
+//standalone components
+import { CounterAloneComponent } from '../alone/components/counter-alone/counter-alone.component';
+import { SidemenuComponent } from '../alone/components/side-menu/side-menu.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [ //eliminamos sidemenucomponent y lo importamos en módulos a pesar de ser un componente
     MiniMapComponent,
-    SidemenuComponent,
     MapsLayoutComponent,
     FullScreenPageComponent,
     MarkersPageComponent,
     PropertiesPageComponent,
-    ZoomRangePageComponent
+    ZoomRangePageComponent,
+
   ],
   imports: [
     CommonModule,
-    MapsRoutingModule
+    MapsRoutingModule,
+    CounterAloneComponent, // los componentes standalone a pesar de ser componentes, se importan en los module para poder ser usados 
+    SidemenuComponent // los componentes standalone a pesar de ser componentes, se importan en los module para poder ser usados 
   ]
 })
 export class MapsModule { }

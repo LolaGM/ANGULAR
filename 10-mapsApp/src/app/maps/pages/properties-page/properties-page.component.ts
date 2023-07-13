@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CounterAloneComponent } from 'src/app/alone/components/counter-alone/counter-alone.component';
 
 //componente creado usando pages con skip selector porque no va a ser llamado en otra parte <maps-layout></maps-layout> y esta va a ser nuestra ruta padre
 
