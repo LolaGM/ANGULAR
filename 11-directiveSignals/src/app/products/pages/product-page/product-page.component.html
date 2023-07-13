@@ -1,0 +1,53 @@
+<h1>
+    Add Product
+</h1>
+<hr>
+
+<!--Conectamos el formulario usando formGroup-->
+
+<form [formGroup]="myForm">
+
+    <div class="row g-3 align-items-center mb-3">
+
+        <div class="col-auto">
+            <label>Name:</label>
+        </div>
+
+        <div class="col-auto">
+        <!--Conectamos el input con el campo del formulario usando formControlName-->
+            <input 
+                formControlName="name"    
+                type="text" class="form-control">
+
+        </div>
+
+        <div class="col-auto">
+            <!--Llamo a la directiva creada -->
+            <span customLabel></span>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button 
+                (click)="changeColor()"
+                class="btn btn-primary">
+                Change color
+            </button>
+        </div>
+    </div>
+
+</form>
+
+<pre class="mt-5">
+    {{ myForm.get('name')?.errors | json }}
+</pre>
+<!-- QUeremos obtener del formulario el campo name.
+    Puede que venga o no ?
+    Queremos los errores.
+    Lo formateamos a JSON.
+    El resultado será true porque es requerido ese campo hasta que no escribamos algo no veremos los errores-->
+
+<p>Color: {{ color }}</p>
+<!--No olvidemos ponerle al botón el evento creado de cambiar color-->
