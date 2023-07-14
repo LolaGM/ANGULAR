@@ -22,8 +22,13 @@
         </div>
 
         <div class="col-auto">
-            <!--Llamo a la directiva creada -->
-            <span customLabel></span>
+            <!--Llamo a la directiva creada y recibo el color.
+            También voy a recibir los errores que pueden ser tambien null o undefined. Escribo en el html para probar -->
+            <span 
+                customLabel
+                [color]="color"
+                [errors]="myForm.get('name')?.errors"
+                >Temporal</span>
         </div>
 
     </div>
