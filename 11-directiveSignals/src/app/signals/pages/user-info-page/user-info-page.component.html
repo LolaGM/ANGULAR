@@ -1,0 +1,27 @@
+<h1>User information</h1>
+<hr>
+
+<div class="row">
+    <div class="col-4">
+        <h3>Current User:  {{ userId() }}</h3>
+        <!-- Conecto los botones con el evento loadUser con el valor que tenga el userId restando y sumando 1-->
+        <button (click)="loadUser( userId() -1 )" class="btn btn-primary">Previous</button>
+        &nbsp;
+        <button (click)="loadUser( userId() +1 )" class="btn btn-primary">Next</button>
+
+    </div>
+
+    <!--Llamamos al usuario actual que puede ser nulo en algún momento ? o podremos preguntar con ngIf si el current user poniendo la exclamación en la {{}}. Eliminamos el condicional y volvemos a ?-->
+    <div class="col-8" >
+        <h3>User</h3>        
+        <p>Email:  {{ currentUser()?.email }} </p>
+        <p>Fullname: {{ fullName() }}</p>
+
+        <img [src]="currentUser()!.avatar" alt="Avatar" class="rounded">
+    </div>
+<!--Validamos si no se encontró el usuario-->
+    <div class="col-8 text-danger" *ngIf="!userWasFound()">
+        <h3>User not found</h3>
+    </div>
+</div>
+

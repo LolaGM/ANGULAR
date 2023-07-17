@@ -1,0 +1,17 @@
+<!--Creamos el menú y lo llamamos en el signals-layout-->
+
+<ul class="list-group">
+    <li 
+        *ngFor="let item of menuItems()" 
+        class="list-group-item"
+        [routerLink]="[item.route]"
+        routerLinkActive="active">
+        {{ item.title }}
+    </li>
+
+</ul>
+
+<!--DIrectamente imprimimos nuestra señal SIGNAL: es la referencia a la señal, pero no a su valor. Añadimos() allá donde lo usemos
+    {{ menuItems() }}
+-->
+

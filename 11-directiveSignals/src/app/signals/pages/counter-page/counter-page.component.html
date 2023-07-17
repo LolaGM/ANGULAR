@@ -1,0 +1,14 @@
+<!--Llamamos a la señal y no olvidemos (). En el segundo counter hacemos el cuadrado es multimplicar ese numero por ese numero pero usaremos la propiedad creada con señal computada-->
+
+<h1>Counter: {{ counter() }}</h1>
+<hr>
+<h2>Square Counter: {{ squareCounter() }}</h2>
+<hr>
+
+
+<button (click)="increaseBy(+1)" class="btn btn-primary"> + 1 </button>
+&nbsp;
+<button (click)="increaseBy(-1)" class="btn btn-primary"> - 1 </button>
+&nbsp;
+<!--Restablecer contador a cero usando la señal de manera directa y el método set a la propiedad  que quiero-->
+<button (click)="counter.set(0)" class="btn btn-primary"> Reset </button>
