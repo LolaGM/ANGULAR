@@ -3,9 +3,8 @@ import { Injectable, computed, inject, signal } from '@angular/core';
 import { Observable, catchError, map, of, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environments';
 
-import { AuthStatus, CheckTokenResponse, User } from '../interfaces';
-import { LoginResponse } from '../interfaces/login-response.interface';
-import { Token } from '@angular/compiler';
+import { AuthStatus, CheckTokenResponse, User, LoginResponse } from '../interfaces';
+
 
 @Injectable({
   providedIn: 'root'

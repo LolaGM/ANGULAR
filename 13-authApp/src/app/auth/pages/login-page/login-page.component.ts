@@ -29,9 +29,9 @@ export class LoginPageComponent {
     
     this.authService.login(email,password) //para que la peticion se dispare, llamo al subscribe y recibo el exito, pero con el error del service voy a cambiar el subscribe: 
       .subscribe( {
-          next: () => this.router.navigateByUrl('dashboard'), // si todo sale bien, llamo al router y navego al dashboard para cambiar de vista
+          next: () => this.router.navigateByUrl('/dashboard'), // si todo sale bien, llamo al router y navego al dashboard para cambiar de vista
           error: (message) => { //este error es un string y podemos usar SWEET ALERT
-            Swal.fire('Error',message, 'error') //SWEET ALERT ( mensaje que aparece en ventana emerrgente, mensaje que sacamos del objeto err )
+            Swal.fire('Error', message, 'error') //SWEET ALERT ( mensaje que aparece en ventana emerrgente, mensaje que sacamos del objeto err )
             //console.log({loginPage: error});
           } //si sale mal, lo atrapo con el error viendo por consola el error
         }
