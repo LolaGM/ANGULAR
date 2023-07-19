@@ -1,5 +1,6 @@
+<!--Conveniente crear componente LOADING de carga mientras se espera
+Usaremos if para comprobar si el check no ha terminado-->
+<h1 *ngIf="!finishedAuthCheck()">Loading</h1>
 
-
-
-
-<router-outlet/>
+<!--Usaremos if para comprobar si el check está en true-->
+<router-outlet *ngIf="finishedAuthCheck()" />
