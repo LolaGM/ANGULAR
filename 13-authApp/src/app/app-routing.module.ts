@@ -23,7 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })], //useHash pone un # en la ruta del navegador cuando hacemos desplegue a producción en netlify por ej
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
