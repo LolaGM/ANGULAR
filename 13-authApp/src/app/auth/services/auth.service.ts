@@ -25,8 +25,8 @@ export class AuthService { //lo que es privado es interno al servicio pero hay q
   private _authStatus = signal<AuthStatus>(AuthStatus.checking);
 
   //si quiero exponer al usuario o al authStatus, utilizo señal computada que retorna el valor que tenga esa señal
-  public currentUser  = computed( () =>  this._currentUser())
-  public authStatus   = computed( () =>  this._authStatus())
+  public currentUser  = computed( () =>  this._currentUser());
+  public authStatus   = computed( () =>  this._authStatus());
 
   constructor(){
     //cuando necesito el servicio, llamamos el constructor
@@ -39,7 +39,7 @@ export class AuthService { //lo que es privado es interno al servicio pero hay q
 
     this._currentUser.set( user); //el user que tengo es el mismo que estoy recibiendo por ahí
     this._authStatus.set( AuthStatus.authenticated); //el auth que llega va a ser el autenticado (no el checking)
-    localStorage.setItem( 'token', token)//el token lo guardamos en local Storage:setItem con nombre variable que tendrá en localStorage y mando a grabar el token
+    localStorage.setItem( 'token', token);//el token lo guardamos en local Storage:setItem con nombre variable que tendrá en localStorage y mando a grabar el token
 
     return true; 
   }
@@ -47,17 +47,16 @@ export class AuthService { //lo que es privado es interno al servicio pero hay q
   //método para login que regresa un observable que si se hace correctamente retorna verdadero o falso:
   login(email:string, password: string): Observable<boolean>{
 
-    const url = `${ this.baseUrl }/auth/login`; //url al que vamos a llegar
-    const body = { email, password }; //en el body viene lo definido en postman que viene de la bbdd { email: email, password: password}
+    const url   = `${ this.baseUrl }/auth/login`; //url al que vamos a llegar
+    const body  = { email, password }; //en el body viene lo definido en postman que viene de la bbdd { email: email, password: password}
 
     //retornamos el POST de tipo loginResponse con el url que voy a disparar: al que voy a llegar. También necesito el body de la petición 
     return this.http.post<LoginResponse>( url, body )
       .pipe(
           map( ({ user, token }) => this.setAuthentication(user,token)), //llamamos al método de autenticación creado arriba
-        //console.log({user,token});//mostramos por consola el user y token para analizarlo
-        //si sucede un error en tap o map, atrápalo con catch y sacaremos el mensaje si sale mal:;objeto err y propiedad error y luego message
-        catchError( err => throwError( () => err.error.message)
-        ),                   
+          //console.log({user,token});//mostramos por consola el user y token para analizarlo
+          //si sucede un error en tap o map, atrápalo con catch y sacaremos el mensaje si sale mal:;objeto err y propiedad error y luego message
+          catchError( err => throwError( () => err.error.message)),                   
         //console.log(err);//obsrevemos el error
         //usamos función throwError que espera una función que diga lo que salió mal: cambiamos en login page el subscribe y usaremos SWEET ALERT para experiencia usuario
         
@@ -93,8 +92,11 @@ export class AuthService { //lo que es privado es interno al servicio pero hay q
           map( ({ user, token }) => this.setAuthentication(user,token)), //llamamos al método de autenticación creado arriba
         //console.log({user,token});//mostramos por consola el user y token para analizarlo
         //si sucede un error en tap o map, atrápalo con catch y sacaremos el mensaje si sale mal:;objeto err y propiedad error y luego message
-          catchError( err => throwError( () => err.error.message)),
-      )
+          catchError(  () => {
+            this._authStatus.set( AuthStatus.notAuthenticated );
+            return of(false);
+          }),
+      );
         //cuando verifiquemos el token de acceso también tenemos que cambiar el authstatus  
   }
 

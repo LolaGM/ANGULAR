@@ -16,10 +16,12 @@ export class LoginPageComponent {
   private authService = inject(AuthService);//inyeccion del servicio
   private router      = inject(Router);//inyeccion del servicio para hacer la navegación de una pantalla a otra
 
-  public myForm: FormGroup = this.fb.group({ //colocamos valores iniciales lo que normalmente estaría vacío
-    email:    ['fernando@google.com',[Validators.required, Validators.email]],
-    password: ['123456',[Validators.required, Validators.minLength(6)]]
+  public myForm: FormGroup = this.fb.group({ //colocamos valores iniciales o vacíos lo que normalmente estaría vacío
+    email:    ['',[Validators.required, Validators.email]],
+    password: ['',[Validators.required, Validators.minLength(6)]]
   });
+
+  //credenciales dadas de alta como ejemplo: email lola@correo.com y password 123456 nombre lola
 
 
   //método de login
